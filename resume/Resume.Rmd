@@ -1,12 +1,12 @@
 ---
-name: First
-surname: Last
-position: "Your Role or Career Focus"
-phone: +1 (XXX) XXX-XXXX
+name: Annabelle
+surname: Petherbridge
+position: "Senior Financial Analyst"
+phone: +1 (971)-277-0758
 www: yourwebsite.com
-email: "you@example.com"
-github: your-github
-linkedin: your-linkedin
+email: "Annabelleelizabethh.com"
+github: Annbelle123
+linkedin: www.linkedin.com/in/annabelle-p-736040190
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::latexcv:
@@ -37,20 +37,20 @@ library(tibble)
 
 # Professional Summary
 
-Motivated and detail-oriented marketing and analytics professional with a strong background in data interpretation, campaign strategy, and digital tools. Skilled in turning insights into action and communicating value across business teams.
+Analytical and results-driven finance professional with a Bachelor of Science in Finance and a minor in Economics from the University of Oregon. Currently serving as a Financial Analyst at HD Supply, with a strong track record in P&L management, forecasting, and cost analysis. Demonstrated ability to support cross-functional teams through data-driven insights and strategic recommendations. Previous experience includes roles in supply chain analysis and entrepreneurial ventures, showcasing a unique blend of corporate finance expertise and entrepreneurial acumen. Adept at leveraging Excel and financial tools to drive operational efficiency and cost savings. Passionate about advancing into financial planning and analysis leadership, with long-term goals in real estate investment and business development.
 
 # Technical Skills
 
-- **Programming Languages:** R, Python, SQL, etc.  
-- **Web Technologies:** HTML, CSS/SCSS, Quarto, CMS, Google Analytics, etc.
+- **Programming Languages:** R, SQL
+- **Web Technologies:** HTML, Quarto
 
 # Education
 
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ College, ~ Institution,
-  "Master of [Your Field]", "20XX – Expected Graduation 20XX", "[Your School or Department]", "[Your University]",
-  "Bachelor of [Your Field]", "20XX – 20XX", "[Your School or Department]", "[Your University]"
+  "Master of Business Administration", "2023 – Expected Graduation 2025", "College of Business", "California State Polytechnic University of Pomona",
+  "Bachelor of Science", "2018 – 2021", "Lundquist College of Business", "University of Oregon"
 ) %>%
   detailed_entries(Degree, Year, College, Institution)
 ```
@@ -61,23 +61,24 @@ tribble(
 tribble(
   ~ Years, ~ Company, ~ Duties, ~ Title,
 
-  "Month YYYY – Month YYYY", "Company or Organization Name",
+  "January 2024 – May 2025", "HD Supply",
   list(
-    "Summarize responsibility or achievement \\#1.",
-    "Highlight tools, technologies, or methods used.",
-    "Mention metrics, goals, or impact if possible.",
-    "Add communication or leadership responsibilities here."
+    "Lead the end-to-end forecasting, reporting, and strategic oversight of the nationwide Profit & Loss (P&L) portfolio, supporting over 120 distribution centers across the U.S. \\#1.",
+    "Serve as the primary finance liaison for regional and national leadership, delivering actionable insights that drive operational efficiency and cost optimization. \\",
+    "Design and implement advanced reporting frameworks using Excel, SQL, and Power BI to uncover trends, highlight performance gaps, and identify multimillion-dollar savings opportunities.",
+    "Collaborate cross-functionally with operations, supply chain, and executive teams to align financial strategy with business objectives and growth initiatives.  ",
+    "Champion data integrity and financial transparency through continuous process improvement and automation of key reporting tools."
   ),
-  "Job Title",
+  "Senior Financial Analyst",
 
-  "Month YYYY – Month YYYY", "Another Company or Team",
+  "January 2022 – December 2023", "HD Supply",
   list(
-    "Led a project or team focused on [insert focus].",
-    "Collaborated cross-functionally with [departments/roles].",
-    "Managed content, campaigns, or dashboards.",
-    "Contributed to strategic planning or reporting."
+    "Managed monthly financial analysis and oversight of assigned P&L accounts, ensuring accuracy, compliance, and alignment with corporate benchmarks.",
+    "Acted as a trusted financial advisor to regional business partners, providing insights and recommendations that informed tactical and strategic decisions.",
+    "Developed and maintained forecasting models using Anaplan, Excel, and SQL to support scenario planning and performance tracking.",
+    "Led initiatives involving marketing analytics, data visualization, and web-based reporting tools to enhance financial storytelling and stakeholder engagement."
   ),
-  "Job Title"
+  "Financial Analyst"
 
 ) %>%
   detailed_entries(

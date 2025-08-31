@@ -1,0 +1,22 @@
+---
+title: "Featured Projects"
+editor: visual
+---
+
+Below is a list of projects I have worked on in my career in Financial analytics. These projects showcase my ability to analyze complex financial data, prepare detailed reports, and provide actionable insights that support strategic decision-making and enhance financial performance.
+
+## Amazon Sales Analysis and Campaign Recommendations
+
+In my role overseeing the e-commerce department for an aerospace company, I conducted comprehensive competitor pricing analyses to identify market opportunities and inform strategic pricing decisions. Following a proposed price reduction, I implemented targeted advertising campaigns to enhance product visibility and drive sales. Utilizing Amazon's campaign reporting tools, I monitored key performance indicators such as return on ad spend (ROAS), advertising cost of sale (ACOS), and new-to-brand metrics . This data-driven approach enabled me to assess campaign effectiveness, adjust strategies in real-time, and optimize advertising spend to maximize sales performance. We saw a 20% increase in sales as a result of this project and generated reviews that benefitted future sales.
+
+## **Picker Performance Tracker Implementation**
+
+In my role supporting warehouse operations, I developed and implemented a comprehensive picker performance tracker that calculated lines picked per hour and analyzed trends to establish average benchmarks for each machine. By setting these performance targets, I introduced a tracking program that allowed pickers to monitor their progress in real-time. This initiative fostered a culture of accountability and continuous improvement. As a result, overall productivity increased by 15%, demonstrating the effectiveness of data-driven performance management in enhancing operational efficiency.
+
+## **Pallet Pricing Analysis & Field Collaboration**
+
+Utilizing internal company data, I conducted comprehensive analyses of pallet pricing trends, comparing regional price fluctuations and identifying factors influencing cost variances. By compiling detailed reports and presenting actionable insights, I facilitated discussions with field teams to explore potential pricing adjustments. This collaborative approach led to strategic vendor alignment and price negotiations. These changes enhanced cost efficiency and aligned with market dynamics.
+
+## **Shrink Reporting & Process Improvement**
+
+Leveraging advanced Excel and SQL skills, I developed a unique join method that enabled accurate line-level reporting of shrink across multiple data sources. This solution allowed us to categorize shrink by type and operational process, providing unprecedented visibility into root causes. The insights generated through this analysis were used to engage stakeholders across the network, driving targeted process improvements and reducing overall shrink rates.

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Hi, I’m Annabelle – ANNABELLE PETHERBRIDGE</title>
+<title>Financial Analytics Project – ANNABELLE PETHERBRIDGE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -67,7 +69,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -89,11 +149,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./financial-analytics.html"> 
+    <a class="nav-link active" href="./financial-analytics.html" aria-current="page"> 
 <span class="menu-text">Financial Analytics</span></a>
   </li>  
   <li class="nav-item">
@@ -116,17 +176,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
-  <li><a href="#lets-connect" id="toc-lets-connect" class="nav-link" data-scroll-target="#lets-connect">Let’s Connect</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">💼 Overview</a></li>
+  <li><a href="#what-youll-find" id="toc-what-youll-find" class="nav-link" data-scroll-target="#what-youll-find">🔍 What You’ll Find</a></li>
   </ul>
 </nav>
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="RmluYW5jaWFsJTIwQW5hbHl0aWNz">Financial Analytics <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Rm9yZWNhc3Rpbmc=">Forecasting <span class="quarto-category-count">(4)</span></div><div class="category" data-category="U2FsZXM=">Sales <span class="quarto-category-count">(4)</span></div><div class="category" data-category="VmlzdWFsaXphdGlvbnM=">Visualizations <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Vm9sdW1lJTIwQW5hbHl0aWNz">Volume Analytics <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hi, I’m Annabelle</h1>
+<h1 class="title">Financial Analytics Project</h1>
 </div>
 
 
@@ -143,27 +203,157 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img src="https://44574734471b43b09c28e3442e218375.app.posit.cloud/file_show?path=%2Fcloud%2Fproject%2Fimages%2FHeadshot.jpg" class="img-fluid" style="border-radius: 50%;;width:100.0%"></p>
-</div><div class="column" style="padding-left: 3rem;">
-<p>I’m a Financial Analyst. I specialize in transforming complex information into clear, engaging, and actionable insights.</p>
-</div>
-</div>
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<p>I hold a <span class="highlight"> Bachelor’s degree in Business Administration</span> from University of Oregon, where I developed a strong foundation in finance, analytics, and strategic thinking.</p>
+<section id="overview" class="level1">
+<h1>💼 Overview</h1>
+<p>Below are selected projects that showcase my ability to apply financial analytics to real-world business challenges. These dashboards and analyses reflect a strong foundation in combining statistical modeling, data visualization, and strategic thinking to uncover insights and drive data-informed decisions.</p>
+<p>From forecasting future sales to analyzing historical trends, each project demonstrates how complex financial data can be transformed into clear, actionable intelligence that supports business growth and operational planning.</p>
 </section>
-<section id="lets-connect" class="level2">
-<h2 class="anchored" data-anchor-id="lets-connect">Let’s Connect</h2>
-<p>You can <a href="mailto:annabelleelizabethh@gmail.com">email me</a> or connect on <a href="https://www.linkedin.com/in/annabelle-p-736040190/">LinkedIn</a>.</p>
+<section id="what-youll-find" class="level1">
+<h1>🔍 What You’ll Find</h1>
+<ul>
+<li><p>📊 Financial Performance Analysis: Identify patterns, anomalies, and growth opportunities in historical sales and order data.</p></li>
+<li><p>📈 Data Visualization: Interactive dashboards that transform raw data into decision-ready insights.</p></li>
+<li><p>📅 Sales Trend Analysis: Year-over-year and seasonal comparisons to uncover performance shifts.</p></li>
+<li><p>👥 Customer &amp; Market Insights: Segment-level forecasting to guide staffing and inventory strategies.</p></li>
+<li><p>🔮 Predictive Forecasting: ARIMA-based models to project future sales and support confident planning.</p></li>
+</ul>
 <hr>
-<p><em>Welcome to my portfolio.</em></p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="U2FsZXMlMkNWaXN1YWxpemF0aW9ucyUyQ0ZpbmFuY2lhbCUyMEFuYWx5dGljcyUyQ0ZvcmVjYXN0aW5n" data-listing-file-modified-sort="1747282564300" data-listing-reading-time-sort="8" data-listing-word-count-sort="1537">
+<a href="./listings/01-Data-Exploration-and-Summaries.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="listings/01-Data-Exploration-and-Summaries_files/figure-html/sales-time-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Data Exploration and Summaries
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2FsZXM='); return false;">Sales</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VmlzdWFsaXphdGlvbnM='); return false;">Visualizations</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmluYW5jaWFsJTIwQW5hbHl0aWNz'); return false;">Financial Analytics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Rm9yZWNhc3Rpbmc='); return false;">Forecasting</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>A dashboard summarizing historical sales data and trends.</p>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="U2FsZXMlMkNWaXN1YWxpemF0aW9ucyUyQ0ZpbmFuY2lhbCUyMEFuYWx5dGljcyUyQ1ZvbHVtZSUyMEFuYWx5dGljcyUyQ0ZvcmVjYXN0aW5n" data-listing-file-modified-sort="1747282583665" data-listing-reading-time-sort="7" data-listing-word-count-sort="1387">
+<a href="./listings/02-Order-Level-Forecasting.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="listings/02-Order-Level-Forecasting_files/figure-html/unnamed-chunk-2-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Order Level Forecasting
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2FsZXM='); return false;">Sales</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VmlzdWFsaXphdGlvbnM='); return false;">Visualizations</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmluYW5jaWFsJTIwQW5hbHl0aWNz'); return false;">Financial Analytics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Vm9sdW1lJTIwQW5hbHl0aWNz'); return false;">Volume Analytics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Rm9yZWNhc3Rpbmc='); return false;">Forecasting</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>A dashboard summarizing historical order trends and predicting future order volume</p>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="U2FsZXMlMkNWaXN1YWxpemF0aW9ucyUyQ0ZpbmFuY2lhbCUyMEFuYWx5dGljcyUyQ1ZvbHVtZSUyMEFuYWx5dGljcyUyQ0ZvcmVjYXN0aW5n" data-listing-file-modified-sort="1747283391547" data-listing-reading-time-sort="10" data-listing-word-count-sort="1850">
+<a href="./listings/04-Actionable-Insights-On-Forecasting-Results.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Actionable Insights on Forecasted Sales
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2FsZXM='); return false;">Sales</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VmlzdWFsaXphdGlvbnM='); return false;">Visualizations</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmluYW5jaWFsJTIwQW5hbHl0aWNz'); return false;">Financial Analytics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Vm9sdW1lJTIwQW5hbHl0aWNz'); return false;">Volume Analytics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Rm9yZWNhc3Rpbmc='); return false;">Forecasting</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>A dashboard Analyzing Forecast Results and Actionable Insights on Predictions</p>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="U2FsZXMlMkNWaXN1YWxpemF0aW9ucyUyQ0ZpbmFuY2lhbCUyMEFuYWx5dGljcyUyQ1ZvbHVtZSUyMEFuYWx5dGljcyUyQ0ZvcmVjYXN0aW5n" data-listing-file-modified-sort="1747282577629" data-listing-reading-time-sort="9" data-listing-word-count-sort="1657">
+<a href="./listings/03-Sales-Level-Forecasting.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="listings/03-Sales-Level-Forecasting_files/figure-html/unnamed-chunk-2-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sales Level Forecasting
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2FsZXM='); return false;">Sales</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VmlzdWFsaXphdGlvbnM='); return false;">Visualizations</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmluYW5jaWFsJTIwQW5hbHl0aWNz'); return false;">Financial Analytics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Vm9sdW1lJTIwQW5hbHl0aWNz'); return false;">Volume Analytics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Rm9yZWNhc3Rpbmc='); return false;">Forecasting</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>A dashboard summarizing historical sales trends and predicting future order sales</p>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

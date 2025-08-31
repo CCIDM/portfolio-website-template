@@ -1,0 +1,315 @@
+---
+title: "Order Level Forecasting"
+description: "A dashboard summarizing historical order trends and predicting future order volume"
+categories: [Sales, Visualizations, Financial Analytics, Volume Analytics, Forecasting]
+index: 2
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+
+# Load Libraries
+library(janitor) 
+library(tidyverse) 
+library(lubridate)
+library(forecast)
+library(shiny)
+library(plotly)
+library(dplyr)
+
+# Load Data
+data <- read.csv("../data/SuperStoreSales.csv")
+
+# clean column names using janitor
+data <- clean_names(data)
+
+# check for missing values
+data %>% 
+  is.na() %>% 
+  sum()
+
+# pull records with missing values
+sapply(data, function(x)which(is.na(x)))
+data[c(2235,5275,8799,9147,9148,9149,9387,9388,9389,9390,9742),]
+
+# na values driven by burlington city missing postal code. add postal code for burlington
+data$postal_code<-replace_na(data$postal_code,05401)
+
+# Check for remaining missing values
+data %>% 
+  is.na() %>% 
+  sum()
+
+# Convert dates to Date format
+data$order_date <- as.Date(data$order_date, format = "%d/%m/%Y")
+data$ship_date <- as.Date(data$ship_date, format = "%d/%m/%Y")
+
+# Calculate summary stats
+total_sales <- sum(data$sales, na.rm = TRUE)
+num_orders <- n_distinct(data$order_id)
+avg_sales_per_order <- round(mean(data$sales, na.rm = TRUE), 2)
+
+# Format total sales using scales package
+formatted_total_sales <- scales::dollar(total_sales)
+
+# Comma-separated number of orders
+formatted_num_orders <- scales::comma(num_orders)
+
+ # Dollar sign for avg sales
+formatted_avg_sales_per_order <- scales::dollar(avg_sales_per_order) 
+```
+
+<!-- CSS for card layout -->
+
+```{=html}
+<style>
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure the container takes up full width */
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    width: 45%; /* Default width for cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  /* Larger cards for specific sections like Sales Over Time and Top 3 Sales Months */
+  .card.sales-time {
+    width: 100% !important;  /* Ensure this card takes full width */
+    min-height: 500px;  /* Increase height to accommodate the graph */
+    padding: 20px;
+    margin-bottom: 40px; /* Extra space for large cards */
+  }
+
+  .card.top-sales {
+    width: 100% !important; /* Keep this card full width if needed */
+    min-height: 400px;
+    padding: 20px;
+  }
+  
+  .card.product-segment {
+  width: 100% !important;
+  min-height: 400px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+  @media (min-width: 768px) {
+    .card {
+      width: 30%; /* 3 cards in a row for larger screens */
+    }
+
+    /* Keep the larger cards at 100% width for wide plots/tables */
+    .card.sales-time {
+      width: 100% !important;  /* Full width for Sales Over Time on larger screens */
+    }
+
+    .card.top-sales {
+      width: 48%; /* Slightly larger for top-sales */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      width: 100%; /* Stack vertically on mobile */
+    }
+
+    .card.sales-time {
+      width: 100% !important;  /* Ensure full width on mobile */
+      min-height: 300px;  /* Adjust for smaller screens */
+    }
+  }
+</style>
+```
+
+# 🛒 About the Dataset
+
+This dashboard is built using a sales dataset from Kaggle that captures **four years of transactions** from a global superstore. Each row represents a unique order, with details spanning **customer segments**, **order and shipping dates**, **shipping methods**, **product categories**, and **sales revenue**.
+
+The dataset enables analysis of key business insights including:
+
+-   **Sales trends over time**
+
+-   **Product and category profitability**
+
+-   **Customer behavior by segment**
+
+# 📦 Order Volume Trends
+
+-   Monthly order count over time.
+
+-   Highlight seasonality and growth.
+
+
+::: {.card .sales-time}
+<h5 class="card-title">
+📦 Monthly Order Volume
+</h5>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=10}
+library(ggplot2)
+
+orders_by_month <- data %>%
+  mutate(month = floor_date(order_date, "month")) %>%
+  group_by(month) %>% 
+  summarise(order_count = n_distinct(order_id))
+
+ggplot(orders_by_month, aes(x = month, y = order_count)) +
+  geom_line(color = "#2C3E50", linewidth = 1.2) +
+  geom_point(color = "#2980B9", size = 2) +
+  labs(title = "Monthly Order Volume",
+       x = "Month",
+       y = "Number of Orders") +
+  theme_minimal()
+```
+:::
+
+
+# 🔮 Forecasting Future Order Volume
+
+::: {.card .sales-time}
+<h5 class="card-title">
+🔮 Forecasting Future Order Volume
+</h5>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=10}
+# Forecasting with Seasonality using Seasonal ARIMA (SARIMA)
+
+# Prepare time series data
+ts_data <- orders_by_month %>%
+  arrange(month) %>%
+  pull(order_count) %>%
+  ts(start = c(year(min(orders_by_month$month)), month(min(orders_by_month$month))), frequency = 12)
+
+# Fit Seasonal ARIMA model
+fit <- auto.arima(ts_data, seasonal = TRUE)
+
+# Forecast next 12 months
+forecasted <- forecast(fit, h = 12)
+
+# Plot forecast
+autoplot(forecasted) +
+  labs(title = "Forecasted Monthly Order Volume with Seasonality",
+       x = "Month",
+       y = "Predicted Orders") +
+  theme_minimal()
+```
+:::
+
+This plot represents the forecasted overall monthly order volume for the next 12 months using a Seasonal ARIMA (SARIMA) model. The historical data reveals a clear seasonal pattern with recurring peaks and troughs. The forecast projects this pattern forward, anticipating higher volumes during peak seasons and lower volumes during off-peak periods. The shaded confidence intervals indicate the expected range of future values, supporting strategic planning for demand surges and slowdowns.
+
+# 📈  Forecasting Order Volume by Product Category
+
+::: {.card .sales-time}
+<h5 class="card-title">
+📈  Forecasting Order Volume by Product Category
+</h5>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=10}
+# Forecasting Order Volume by Product Category
+
+library(forecast)
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+library(tidyr)
+
+# Prepare monthly order count by category
+category_monthly <- data %>%
+  mutate(month = floor_date(order_date, "month")) %>%
+  group_by(category, month) %>%
+  summarise(order_count = n_distinct(order_id), .groups = "drop")
+
+# Create a list of forecasts by category
+category_forecasts <- category_monthly %>%
+  group_by(category) %>%
+  group_split() %>%
+  setNames(unique(category_monthly$category)) %>%
+  lapply(function(df) {
+    ts_data <- ts(df$order_count,
+                  start = c(year(min(df$month)), month(min(df$month))),
+                  frequency = 12)
+    fit <- auto.arima(ts_data, seasonal = TRUE)
+    forecast(fit, h = 12)
+  })
+
+# Plot forecasts
+par(mfrow = c(1, length(category_forecasts)))
+for (cat in names(category_forecasts)) {
+  plot(category_forecasts[[cat]],
+       main = paste("Forecast for", cat),
+       ylab = "Orders", xlab = "Month")
+}
+```
+:::
+
+This set of plots shows the forecasted order volume for each product category, also using SARIMA models. Each category reveals distinct seasonal behaviors:
+
+-  🪑 Furniture: Steady growth with seasonal peaks around holidays.
+-  🗂️ Office Supplies: Cyclical demand with spikes during back-to-school periods.
+-  💻 Technology: Rapid growth with occasional surges tied to product launches and promotions.
+
+These forecasts help tailor inventory and marketing strategies to the unique demand cycles of each category.
+
+#  🧑‍💼 Forecasting Order Volume by Customer Segment
+
+::: {.card .sales-time}
+<h5 class="card-title">
+  🧑‍💼 Forecasting Order Volume by Customer Segment
+</h5>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=10}
+# Forecasting Monthly Order Count by Segment with Seasonality
+
+library(forecast)
+library(dplyr)
+library(lubridate)
+library(tidyr)
+
+# Prepare monthly order count by segment
+segment_monthly <- data %>%
+  mutate(month = floor_date(order_date, "month")) %>%
+  group_by(segment, month) %>%
+  summarise(order_count = n_distinct(order_id), .groups = "drop")
+
+# Forecast and plot for each segment
+segments <- unique(segment_monthly$segment)
+par(mfrow = c(length(segments), 1))  # One row per segment
+
+for (seg in segments) {
+  df <- segment_monthly %>%
+    filter(segment == seg) %>%
+    complete(month = seq(min(month), max(month), by = "month"), fill = list(order_count = 0)) %>%
+    arrange(month)
+
+  ts_data <- ts(df$order_count,
+                start = c(year(min(df$month)), month(min(df$month))),
+                frequency = 12)
+
+  fit <- auto.arima(ts_data, seasonal = TRUE)
+  forecasted <- forecast(fit, h = 12)
+
+  plot(forecasted,
+       main = paste("Forecasted Monthly Orders -", seg, "Segment"),
+       ylab = "Order Count", xlab = "Month")
+}
+```
+:::
+
+This set of plots presents a 12-month forecast of monthly order volume for each customer segment—Consumer, Corporate, and Home Office—using Seasonal ARIMA (SARIMA) models. Each segment exhibits unique seasonal patterns:
+
+-  Consumer: Displays consistent seasonal peaks, often aligning with retail cycles and promotional periods.
+-  Corporate: Shows steadier growth with moderate seasonal variation, reflecting business procurement cycles.
+-  Home Office: Exhibits more irregular patterns, with occasional spikes likely tied to remote work trends or small business activity.
+
+The shaded confidence intervals around each forecast line represent the expected range of future values, helping to guide segment-specific planning for inventory, staffing, and marketing efforts.
+
+## 📎 Appendix
+
+This dashboard was created using data from a public Kaggle dataset: [Sales Dataset on Kaggle](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting)

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="A dashboard summarizing historical sales data and trends.">
 
-<title>Hi, I’m Annabelle – ANNABELLE PETHERBRIDGE</title>
+<title>Sales Dashboard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,112 +24,41 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-94517bd05dedbea9265eed6b41c25f1c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<script src="Data-Exploration-and-Summaries_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Data-Exploration-and-Summaries_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Data-Exploration-and-Summaries_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Data-Exploration-and-Summaries_files/libs/quarto-html/popper.min.js"></script>
+<script src="Data-Exploration-and-Summaries_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Data-Exploration-and-Summaries_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Data-Exploration-and-Summaries_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Data-Exploration-and-Summaries_files/libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Data-Exploration-and-Summaries_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Data-Exploration-and-Summaries_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Data-Exploration-and-Summaries_files/libs/bootstrap/bootstrap-2546a5edb573abd25b53f29b13f71942.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="fullcontent quarto-light">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">ANNABELLE PETHERBRIDGE</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./financial-analytics.html"> 
-<span class="menu-text">Financial Analytics</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
-<span class="menu-text">Résumé</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
-  <li><a href="#lets-connect" id="toc-lets-connect" class="nav-link" data-scroll-target="#lets-connect">Let’s Connect</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hi, I’m Annabelle</h1>
-</div>
+<h1 class="title">Sales Dashboard</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Sales</div>
+    <div class="quarto-category">Forecasting</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    A dashboard summarizing historical sales data and trends.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -143,27 +73,258 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img src="https://44574734471b43b09c28e3442e218375.app.posit.cloud/file_show?path=%2Fcloud%2Fproject%2Fimages%2FHeadshot.jpg" class="img-fluid" style="border-radius: 50%;;width:100.0%"></p>
-</div><div class="column" style="padding-left: 3rem;">
-<p>I’m a Financial Analyst. I specialize in transforming complex information into clear, engaging, and actionable insights.</p>
+<!-- CSS for card layout -->
+<style>
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure the container takes up full width */
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    width: 45%; /* Default width for cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  /* Larger cards for specific sections like Sales Over Time and Top 3 Sales Months */
+  .card.sales-time {
+    width: 100% !important;  /* Ensure this card takes full width */
+    min-height: 500px;  /* Increase height to accommodate the graph */
+    padding: 20px;
+    margin-bottom: 40px; /* Extra space for large cards */
+  }
+
+  .card.top-sales {
+    width: 100% !important; /* Keep this card full width if needed */
+    min-height: 400px;
+    padding: 20px;
+  }
+  
+  .card.product-segment {
+  width: 100% !important;
+  min-height: 400px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+  @media (min-width: 768px) {
+    .card {
+      width: 30%; /* 3 cards in a row for larger screens */
+    }
+
+    /* Keep the larger cards at 100% width for wide plots/tables */
+    .card.sales-time {
+      width: 100% !important;  /* Full width for Sales Over Time on larger screens */
+    }
+
+    .card.top-sales {
+      width: 48%; /* Slightly larger for top-sales */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      width: 100%; /* Stack vertically on mobile */
+    }
+
+    .card.sales-time {
+      width: 100% !important;  /* Ensure full width on mobile */
+      min-height: 300px;  /* Adjust for smaller screens */
+    }
+  }
+</style>
+<section id="about-the-dataset" class="level1">
+<h1>🛒 About the Dataset</h1>
+<p>This dashboard is built using a sales dataset from Kaggle that captures <strong>four years of transactions</strong> from a global superstore. Each row represents a unique order, with details spanning <strong>customer segments</strong>, <strong>order and shipping dates</strong>, <strong>shipping methods</strong>, <strong>product categories</strong>, and <strong>sales revenue</strong>.</p>
+<p>The dataset enables analysis of key business insights including:</p>
+<ul>
+<li><p><strong>Sales trends over time</strong></p></li>
+<li><p><strong>Product and category profitability</strong></p></li>
+<li><p><strong>Customer behavior by segment</strong></p></li>
+</ul>
+<section id="summary-stats" class="level2">
+<h2 class="anchored" data-anchor-id="summary-stats">📊 Summary Stats</h2>
+<div class="card-container">
+<div class="card">
+<h5 class="card-title anchored">
+<p>💰 Total Sales</p>
+</h5>
+<p class="card-text">
+</p><p>$2,261,537</p>
+<p></p>
+</div>
+<div class="card">
+<h5 class="card-title anchored">
+<p>📦 Number of Orders</p>
+</h5>
+<p class="card-text">
+</p><p>4,922</p>
+<p></p>
+</div>
+<div class="card">
+<h5 class="card-title anchored">
+<p>🧮 Avg Sales / Order</p>
+</h5>
+<p class="card-text">
+</p><p>$230.77</p>
+<p></p>
 </div>
 </div>
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<p>I hold a <span class="highlight"> Bachelor’s degree in Business Administration</span> from University of Oregon, where I developed a strong foundation in finance, analytics, and strategic thinking.</p>
+<p>These metrics provide a high-level overview of the dataset’s performance.</p>
+<ul>
+<li><p><strong>Total Sales</strong> reflects the overall revenue generated.</p></li>
+<li><p><strong>Number of Orders</strong> shows the volume of transactions.</p></li>
+<li><p><strong>Average Sales per Order</strong> helps assess the typical order value.<br>
+Together, these figures offer a snapshot of business scale and customer purchasing behavior.</p></li>
+</ul>
 </section>
-<section id="lets-connect" class="level2">
-<h2 class="anchored" data-anchor-id="lets-connect">Let’s Connect</h2>
-<p>You can <a href="mailto:annabelleelizabethh@gmail.com">email me</a> or connect on <a href="https://www.linkedin.com/in/annabelle-p-736040190/">LinkedIn</a>.</p>
-<hr>
-<p><em>Welcome to my portfolio.</em></p>
-
-
+<section id="top-3-sales-months" class="level2">
+<h2 class="anchored" data-anchor-id="top-3-sales-months">🔝 Top 3 Sales Months</h2>
+<div class="card">
+<h5 class="card-title anchored">
+<p>🏆 Top 3 Sales Months (Avg Across 4 Yrs)</p>
+</h5>
+<p class="card-text">
+</p><p><strong>November</strong>: $87,540.43<br><strong>December</strong>: $80,370.04<br><strong>September</strong>: $75,025.85</p>
+<p></p>
+</div>
+<p>This section highlights the months with the highest average sales across four years. It reveals&nbsp;<strong>seasonal peaks</strong>&nbsp;in demand—particularly in&nbsp;<strong>November and December</strong>, likely due to holiday shopping. This insight is crucial for&nbsp;<strong>inventory planning</strong>,&nbsp;<strong>marketing campaigns</strong>, and&nbsp;<strong>staffing decisions</strong>&nbsp;during high-demand periods.</p>
+</section>
+<section id="sales-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="sales-over-time">📅 Sales Over Time</h2>
+<p>This chart shows total sales over time, aggregated by month</p>
+<div class="card sales-time">
+<h5 class="card-title anchored">
+<p>Sales Over Time</p>
+</h5>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data-Exploration-and-Summaries_files/figure-html/sales-time-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This line chart shows how total sales have evolved month by month. It helps identify&nbsp;<strong>long-term trends</strong>,&nbsp;<strong>growth patterns</strong>, and&nbsp;<strong>anomalies</strong>&nbsp;in performance. This view is essential for understanding business momentum and for building&nbsp;<strong>time series forecasting models</strong>.</p>
+</section>
+<section id="sales-by-product-segment" class="level2">
+<h2 class="anchored" data-anchor-id="sales-by-product-segment">📊 Sales by Product Segment</h2>
+<p>This section will display a bar plot showing total sales for each product segment.</p>
+<div class="card product-segment">
+<h5 class="card-title anchored">
+<p>Sales by Product Segment</p>
+</h5>
+<div class="cell" data-messsage="false">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data-Exploration-and-Summaries_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This bar chart breaks down total sales by customer segment (e.g., Consumer, Corporate, Home Office).</p>
+<p>It reveals which segments are the most profitable and where growth opportunities may lie. This information supports&nbsp;<strong>targeted marketing</strong>&nbsp;and&nbsp;<strong>product development</strong>&nbsp;strategies.</p>
+</section>
+<section id="year-over-year-yoy-sales-growth" class="level2">
+<h2 class="anchored" data-anchor-id="year-over-year-yoy-sales-growth">📈 Year-over-Year (YoY) Sales Growth</h2>
+<p>This shows how sales have changed each year, helping identify growth trends.</p>
+<div class="card product-segment">
+<h5 class="card-title anchored">
+<p>YoY Sales Growth</p>
+</h5>
+<div class="cell" data-messsage="false">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data-Exploration-and-Summaries_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This chart compares total sales from one year to the next. It quantifies <strong>annual growth rates</strong>, helping assess whether the business is expanding or contracting. YoY growth is a key metric for&nbsp;<strong>investors</strong>,&nbsp;<strong>executives</strong>, and&nbsp;<strong>strategic planning</strong>.</p>
+</section>
+<section id="monthly-seasonality-trends" class="level2">
+<h2 class="anchored" data-anchor-id="monthly-seasonality-trends">📅 Monthly Seasonality Trends</h2>
+<p>This helps identify which months consistently perform better or worse.</p>
+<div class="card product-segment">
+<h5 class="card-title anchored">
+<p>Monthly Seasonality</p>
+</h5>
+<div class="cell" data-messsage="false">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data-Exploration-and-Summaries_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This visualization shows how sales vary by month, averaged across all years. It uncovers&nbsp;<strong>recurring seasonal patterns</strong>, such as spikes in Q4 or dips in summer. Understanding seasonality is vital for&nbsp;<strong>forecasting</strong>,&nbsp;<strong>budgeting</strong>, and&nbsp;<strong>resource allocation</strong>.</p>
+</section>
+<section id="sales-by-category-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="sales-by-category-over-time">🧾 Sales by Category Over Time</h2>
+<p>This shows how each product category performs over time.</p>
+<div class="card product-segment">
+<h5 class="card-title anchored">
+<p>Sales by Category Over Time</p>
+</h5>
+<div class="cell" data-messsage="false">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data-Exploration-and-Summaries_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This line chart tracks sales performance for each product category over time. It helps identify&nbsp;<strong>category trends</strong>, such as rising demand for technology or declining furniture sales.This insight supports&nbsp;<strong>product portfolio optimization</strong>&nbsp;and&nbsp;<strong>category-specific promotions</strong>.</p>
+</section>
+<section id="time-series-decomposition" class="level2">
+<h2 class="anchored" data-anchor-id="time-series-decomposition">🔍 Time Series Decomposition</h2>
+<p>This breaks down the sales time series into trend, seasonality, and residuals.</p>
+<div class="card product-segment">
+<h5 class="card-title anchored">
+<p>Sales by Category Over Time</p>
+</h5>
+<div class="cell" data-messsage="false">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data-Exploration-and-Summaries_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This analysis breaks down the sales time series into three components:</p>
+<ul>
+<li><p><strong>Trend</strong>: the long-term direction of sales.</p></li>
+<li><p><strong>Seasonality</strong>: regular, repeating patterns (e.g., monthly or quarterly).</p></li>
+<li><p><strong>Residuals</strong>: random noise or irregular fluctuations.</p></li>
+</ul>
+<p>Time series decomposition is foundational for <strong>forecasting models</strong>, as it helps isolate predictable patterns from random variation.</p>
+</section>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">📎 Appendix</h2>
+<p>This dashboard was created using data from a public Kaggle dataset: <a href="https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting">Sales Dataset on Kaggle</a></p>
+</section>
 </section>
 
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -236,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/e280a101-3989-4149-a916-71e3992fc6d4\.netlify\.app\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

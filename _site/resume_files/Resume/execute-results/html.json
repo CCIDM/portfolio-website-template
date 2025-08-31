@@ -1,0 +1,15 @@
+{
+  "hash": "d289d7cd66eadd18937cd6f4b87355a5",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nname: Annabelle\nsurname: Petherbridge\nposition: \"Senior Financial Analyst\"\nphone: +1 (971)-277-0758\nwww: yourwebsite.com\nemail: \"Annabelleelizabethh.com\"\ngithub: Annbelle123\nlinkedin: www.linkedin.com/in/annabelle-p-736040190\ndate: \"May 2025\"\noutput: \n  vitae::latexcv:\n    theme: classic\nheader-includes:\n   - \\usepackage{enumitem}\n   - \\setlist[itemize]{nosep, left=0pt}\n   - \\setlist[enumerate]{nosep, left=0pt}\n---\n\n\n\n# Professional Summary\n\nAnalytical and results-driven finance professional with a Bachelor of Science in Finance and a minor in Economics from the University of Oregon. Currently serving as a Financial Analyst at HD Supply, with a strong track record in P&L management, forecasting, and cost analysis. Demonstrated ability to support cross-functional teams through data-driven insights and strategic recommendations. Previous experience includes roles in supply chain analysis and entrepreneurial ventures, showcasing a unique blend of corporate finance expertise and entrepreneurial acumen. Adept at leveraging Excel and financial tools to drive operational efficiency and cost savings. Passionate about advancing into financial planning and analysis leadership, with long-term goals in real estate investment and business development.\n\n# Technical Skills\n\n- **Programming Languages:** R, SQL\n- **Web Technologies:** HTML, Quarto\n\n# Education\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\n# A tibble: 2 × 5\n  what                              when                       with  where why  \n  <chr>                             <chr>                      <chr> <chr> <lis>\n1 Master of Business Administration 2023 – Expected Graduatio… Coll… Cali… <chr>\n2 Bachelor of Science               2018 – 2021                Lund… Univ… <chr>\n```\n\n\n:::\n:::\n\n\n# Work Experience\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\n# A tibble: 2 × 5\n  what                     when                         with      where why   \n  <chr>                    <chr>                        <chr>     <chr> <list>\n1 Senior Financial Analyst January 2024 – May 2025      HD Supply <NA>  <list>\n2 Financial Analyst        January 2022 – December 2023 HD Supply <NA>  <list>\n```\n\n\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

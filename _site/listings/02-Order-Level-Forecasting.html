@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="A dashboard summarizing historical order trends and predicting future order volume">
 
-<title>Hi, I’m Annabelle – ANNABELLE PETHERBRIDGE</title>
+<title>Order Level Forecasting – ANNABELLE PETHERBRIDGE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-94517bd05dedbea9265eed6b41c25f1c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-94517bd05dedbea9265eed6b41c25f1c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ANNABELLE PETHERBRIDGE</span>
     </a>
   </div>
@@ -89,15 +90,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./financial-analytics.html"> 
+    <a class="nav-link" href="../financial-analytics.html"> 
 <span class="menu-text">Financial Analytics</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
+    <a class="nav-link" href="../resume.html"> 
 <span class="menu-text">Résumé</span></a>
   </li>  
 </ul>
@@ -116,8 +117,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
-  <li><a href="#lets-connect" id="toc-lets-connect" class="nav-link" data-scroll-target="#lets-connect">Let’s Connect</a></li>
+  <li><a href="#about-the-dataset" id="toc-about-the-dataset" class="nav-link active" data-scroll-target="#about-the-dataset">🛒 About the Dataset</a></li>
+  <li><a href="#order-volume-trends" id="toc-order-volume-trends" class="nav-link" data-scroll-target="#order-volume-trends">📦 Order Volume Trends</a></li>
+  <li><a href="#forecasting-future-order-volume" id="toc-forecasting-future-order-volume" class="nav-link" data-scroll-target="#forecasting-future-order-volume">🔮 Forecasting Future Order Volume</a></li>
+  <li><a href="#forecasting-order-volume-by-product-category" id="toc-forecasting-order-volume-by-product-category" class="nav-link" data-scroll-target="#forecasting-order-volume-by-product-category">📈 Forecasting Order Volume by Product Category</a></li>
+  <li><a href="#forecasting-order-volume-by-customer-segment" id="toc-forecasting-order-volume-by-customer-segment" class="nav-link" data-scroll-target="#forecasting-order-volume-by-customer-segment">🧑‍💼 Forecasting Order Volume by Customer Segment</a>
+  <ul class="collapse">
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">📎 Appendix</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -126,9 +133,21 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hi, I’m Annabelle</h1>
-</div>
+<h1 class="title">Order Level Forecasting</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Sales</div>
+    <div class="quarto-category">Visualizations</div>
+    <div class="quarto-category">Financial Analytics</div>
+    <div class="quarto-category">Volume Analytics</div>
+    <div class="quarto-category">Forecasting</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    A dashboard summarizing historical order trends and predicting future order volume
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -143,24 +162,174 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img src="https://44574734471b43b09c28e3442e218375.app.posit.cloud/file_show?path=%2Fcloud%2Fproject%2Fimages%2FHeadshot.jpg" class="img-fluid" style="border-radius: 50%;;width:100.0%"></p>
-</div><div class="column" style="padding-left: 3rem;">
-<p>I’m a Financial Analyst. I specialize in transforming complex information into clear, engaging, and actionable insights.</p>
-</div>
-</div>
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<p>I hold a <span class="highlight"> Bachelor’s degree in Business Administration</span> from University of Oregon, where I developed a strong foundation in finance, analytics, and strategic thinking.</p>
+<!-- CSS for card layout -->
+<style>
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure the container takes up full width */
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    width: 45%; /* Default width for cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  /* Larger cards for specific sections like Sales Over Time and Top 3 Sales Months */
+  .card.sales-time {
+    width: 100% !important;  /* Ensure this card takes full width */
+    min-height: 500px;  /* Increase height to accommodate the graph */
+    padding: 20px;
+    margin-bottom: 40px; /* Extra space for large cards */
+  }
+
+  .card.top-sales {
+    width: 100% !important; /* Keep this card full width if needed */
+    min-height: 400px;
+    padding: 20px;
+  }
+  
+  .card.product-segment {
+  width: 100% !important;
+  min-height: 400px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+  @media (min-width: 768px) {
+    .card {
+      width: 30%; /* 3 cards in a row for larger screens */
+    }
+
+    /* Keep the larger cards at 100% width for wide plots/tables */
+    .card.sales-time {
+      width: 100% !important;  /* Full width for Sales Over Time on larger screens */
+    }
+
+    .card.top-sales {
+      width: 48%; /* Slightly larger for top-sales */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      width: 100%; /* Stack vertically on mobile */
+    }
+
+    .card.sales-time {
+      width: 100% !important;  /* Ensure full width on mobile */
+      min-height: 300px;  /* Adjust for smaller screens */
+    }
+  }
+</style>
+<section id="about-the-dataset" class="level1">
+<h1>🛒 About the Dataset</h1>
+<p>This dashboard is built using a sales dataset from Kaggle that captures <strong>four years of transactions</strong> from a global superstore. Each row represents a unique order, with details spanning <strong>customer segments</strong>, <strong>order and shipping dates</strong>, <strong>shipping methods</strong>, <strong>product categories</strong>, and <strong>sales revenue</strong>.</p>
+<p>The dataset enables analysis of key business insights including:</p>
+<ul>
+<li><p><strong>Sales trends over time</strong></p></li>
+<li><p><strong>Product and category profitability</strong></p></li>
+<li><p><strong>Customer behavior by segment</strong></p></li>
+</ul>
 </section>
-<section id="lets-connect" class="level2">
-<h2 class="anchored" data-anchor-id="lets-connect">Let’s Connect</h2>
-<p>You can <a href="mailto:annabelleelizabethh@gmail.com">email me</a> or connect on <a href="https://www.linkedin.com/in/annabelle-p-736040190/">LinkedIn</a>.</p>
-<hr>
-<p><em>Welcome to my portfolio.</em></p>
+<section id="order-volume-trends" class="level1">
+<h1>📦 Order Volume Trends</h1>
+<ul>
+<li><p>Monthly order count over time.</p></li>
+<li><p>Highlight seasonality and growth.</p></li>
+</ul>
+<div class="card sales-time">
+<h5 class="card-title anchored" data-anchor-id="order-volume-trends">
+📦 Monthly Order Volume
+</h5>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-Order-Level-Forecasting_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="forecasting-future-order-volume" class="level1">
+<h1>🔮 Forecasting Future Order Volume</h1>
+<div class="card sales-time">
+<h5 class="card-title anchored" data-anchor-id="forecasting-future-order-volume">
+🔮 Forecasting Future Order Volume
+</h5>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-Order-Level-Forecasting_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This plot represents the forecasted overall monthly order volume for the next 12 months using a Seasonal ARIMA (SARIMA) model. The historical data reveals a clear seasonal pattern with recurring peaks and troughs. The forecast projects this pattern forward, anticipating higher volumes during peak seasons and lower volumes during off-peak periods. The shaded confidence intervals indicate the expected range of future values, supporting strategic planning for demand surges and slowdowns.</p>
+</section>
+<section id="forecasting-order-volume-by-product-category" class="level1">
+<h1>📈 Forecasting Order Volume by Product Category</h1>
+<div class="card sales-time">
+<h5 class="card-title anchored" data-anchor-id="forecasting-order-volume-by-product-category">
+📈 Forecasting Order Volume by Product Category
+</h5>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-Order-Level-Forecasting_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This set of plots shows the forecasted order volume for each product category, also using SARIMA models. Each category reveals distinct seasonal behaviors:</p>
+<ul>
+<li>🪑 Furniture: Steady growth with seasonal peaks around holidays.</li>
+<li>🗂️ Office Supplies: Cyclical demand with spikes during back-to-school periods.</li>
+<li>💻 Technology: Rapid growth with occasional surges tied to product launches and promotions.</li>
+</ul>
+<p>These forecasts help tailor inventory and marketing strategies to the unique demand cycles of each category.</p>
+</section>
+<section id="forecasting-order-volume-by-customer-segment" class="level1">
+<h1>🧑‍💼 Forecasting Order Volume by Customer Segment</h1>
+<div class="card sales-time">
+<h5 class="card-title anchored">
+🧑‍💼 Forecasting Order Volume by Customer Segment
+</h5>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-Order-Level-Forecasting_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This set of plots presents a 12-month forecast of monthly order volume for each customer segment—Consumer, Corporate, and Home Office—using Seasonal ARIMA (SARIMA) models. Each segment exhibits unique seasonal patterns:</p>
+<ul>
+<li>Consumer: Displays consistent seasonal peaks, often aligning with retail cycles and promotional periods.</li>
+<li>Corporate: Shows steadier growth with moderate seasonal variation, reflecting business procurement cycles.</li>
+<li>Home Office: Exhibits more irregular patterns, with occasional spikes likely tied to remote work trends or small business activity.</li>
+</ul>
+<p>The shaded confidence intervals around each forecast line represent the expected range of future values, helping to guide segment-specific planning for inventory, staffing, and marketing efforts.</p>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">📎 Appendix</h2>
+<p>This dashboard was created using data from a public Kaggle dataset: <a href="https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting">Sales Dataset on Kaggle</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

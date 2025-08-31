@@ -2,15 +2,15 @@ project:
   type: website
 
 website:
-  title: "YOUR NAME"
+  title: "ANNABELLE PETHERBRIDGE"
   navbar:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Marketing Analytics"
-        href: marketing-analytics.qmd
-      - text: "Strategic Marketing"
-        href: strategic-marketing.qmd
+      - text: "Financial Analytics"
+        href: financial-analytics.qmd
+      - text: "Projects"
+        href: Projects.qmd
       - text: "Résumé"
         href: resume.qmd
 

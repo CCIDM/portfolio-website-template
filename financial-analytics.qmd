@@ -1,0 +1,30 @@
+---
+title: "Financial Analytics Project"
+listing: 
+  contents: listings
+  type: grid
+  categories: true
+  sort: 
+    - "index desc"
+---
+
+# 💼 Overview
+
+Below are selected projects that showcase my ability to apply financial analytics to real-world business challenges. These dashboards and analyses reflect a strong foundation in combining statistical modeling, data visualization, and strategic thinking to uncover insights and drive data-informed decisions.
+
+From forecasting future sales to analyzing historical trends, each project demonstrates how complex financial data can be transformed into clear, actionable intelligence that supports business growth and operational planning.
+
+
+# 🔍 What You’ll Find
+
+- 📊 Financial Performance Analysis: Identify patterns, anomalies, and growth opportunities in historical sales and order data.
+
+- 📈 Data Visualization: Interactive dashboards that transform raw data into decision-ready insights.
+
+- 📅 Sales Trend Analysis: Year-over-year and seasonal comparisons to uncover performance shifts.
+
+- 👥 Customer & Market Insights: Segment-level forecasting to guide staffing and inventory strategies.
+
+- 🔮 Predictive Forecasting: ARIMA-based models to project future sales and support confident planning.
+
+---

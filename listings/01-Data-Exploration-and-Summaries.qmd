@@ -1,0 +1,429 @@
+---
+title: "Data Exploration and Summaries"
+description: "A dashboard summarizing historical sales data and trends."
+categories: [Sales, Visualizations, Financial Analytics, Forecasting]
+index: 2
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+
+# Load Libraries
+library(janitor) 
+library(tidyverse) 
+library(lubridate)
+library(forecast)
+
+# Load Data
+data <- read.csv("../data/SuperStoreSales.csv")
+
+# clean column names using janitor
+data <- clean_names(data)
+
+# check for missing values
+data %>% 
+  is.na() %>% 
+  sum()
+
+# pull records with missing values
+sapply(data, function(x)which(is.na(x)))
+data[c(2235,5275,8799,9147,9148,9149,9387,9388,9389,9390,9742),]
+
+# na values driven by burlington city missing postal code. add postal code for burlington
+data$postal_code<-replace_na(data$postal_code,05401)
+
+# Check for remaining missing values
+data %>% 
+  is.na() %>% 
+  sum()
+
+# Convert dates to Date format
+data$order_date <- as.Date(data$order_date, format = "%d/%m/%Y")
+data$ship_date <- as.Date(data$ship_date, format = "%d/%m/%Y")
+
+# Calculate summary stats
+total_sales <- sum(data$sales, na.rm = TRUE)
+num_orders <- n_distinct(data$order_id)
+avg_sales_per_order <- round(mean(data$sales, na.rm = TRUE), 2)
+
+# Format total sales using scales package
+formatted_total_sales <- scales::dollar(total_sales)
+
+# Comma-separated number of orders
+formatted_num_orders <- scales::comma(num_orders)
+
+ # Dollar sign for avg sales
+formatted_avg_sales_per_order <- scales::dollar(avg_sales_per_order) 
+```
+
+<!-- CSS for card layout -->
+
+```{=html}
+<style>
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure the container takes up full width */
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    width: 45%; /* Default width for cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  /* Larger cards for specific sections like Sales Over Time and Top 3 Sales Months */
+  .card.sales-time {
+    width: 100% !important;  /* Ensure this card takes full width */
+    min-height: 500px;  /* Increase height to accommodate the graph */
+    padding: 20px;
+    margin-bottom: 40px; /* Extra space for large cards */
+  }
+
+  .card.top-sales {
+    width: 100% !important; /* Keep this card full width if needed */
+    min-height: 400px;
+    padding: 20px;
+  }
+  
+  .card.product-segment {
+  width: 100% !important;
+  min-height: 400px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+  @media (min-width: 768px) {
+    .card {
+      width: 30%; /* 3 cards in a row for larger screens */
+    }
+
+    /* Keep the larger cards at 100% width for wide plots/tables */
+    .card.sales-time {
+      width: 100% !important;  /* Full width for Sales Over Time on larger screens */
+    }
+
+    .card.top-sales {
+      width: 48%; /* Slightly larger for top-sales */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      width: 100%; /* Stack vertically on mobile */
+    }
+
+    .card.sales-time {
+      width: 100% !important;  /* Ensure full width on mobile */
+      min-height: 300px;  /* Adjust for smaller screens */
+    }
+  }
+</style>
+```
+# 🛒 About the Dataset
+
+This dashboard is built using a sales dataset from Kaggle that captures **four years of transactions** from a global superstore. Each row represents a unique order, with details spanning **customer segments**, **order and shipping dates**, **shipping methods**, **product categories**, and **sales revenue**.
+
+The dataset enables analysis of key business insights including:
+
+-   **Sales trends over time**
+
+-   **Product and category profitability**
+
+-   **Customer behavior by segment**
+
+## 📊 Summary Stats
+
+::: card-container
+::: card
+<h5 class="card-title">
+
+💰 Total Sales
+
+</h5>
+
+<p class="card-text">
+
+`r formatted_total_sales`
+
+</p>
+:::
+
+::: card
+<h5 class="card-title">
+
+📦 Number of Orders
+
+</h5>
+
+<p class="card-text">
+
+`r formatted_num_orders`
+
+</p>
+:::
+
+::: card
+<h5 class="card-title">
+
+🧮 Avg Sales / Order
+
+</h5>
+
+<p class="card-text">
+
+`r formatted_avg_sales_per_order`
+
+</p>
+:::
+:::
+
+These metrics provide a high-level overview of the dataset’s performance.
+
+-   **Total Sales** reflects the overall revenue generated.
+
+-   **Number of Orders** shows the volume of transactions.
+
+-   **Average Sales per Order** helps assess the typical order value.\
+    Together, these figures offer a snapshot of business scale and customer purchasing behavior.
+
+## 🔝 Top 3 Sales Months
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+# Add month name and year
+data <- data %>%
+  mutate(
+    year = year(order_date),
+    month_num = month(order_date),
+    month_name = month.name[month_num]
+  )
+
+# Step 1: Get total sales per calendar month per year
+monthly_totals <- data %>%
+  group_by(year, month_num, month_name) %>%
+  summarise(monthly_sales = sum(sales, na.rm = TRUE), .groups = "drop")
+
+# Step 2: Calculate average monthly sales across years per month
+avg_month_sales <- monthly_totals %>%
+  group_by(month_name, month_num) %>%
+  summarise(avg_sales = mean(monthly_sales), .groups = "drop") %>%
+  arrange(desc(avg_sales)) %>%
+  slice_head(n = 3)
+
+# Format the sales for display
+avg_month_sales$avg_sales <- scales::dollar(round(avg_month_sales$avg_sales, 2))
+
+# Store the top 3 months and their sales for later use
+top_months <- avg_month_sales %>%
+  select(month_name, avg_sales) %>%
+  mutate(html = paste0("<strong>", month_name, "</strong>: ", avg_sales))
+```
+
+::: card
+<h5 class="card-title">
+
+🏆 Top 3 Sales Months (Avg Across 4 Yrs)
+
+</h5>
+
+<p class="card-text">
+
+`r paste(top_months$html, collapse = "<br>")`
+
+</p>
+:::
+
+This section highlights the months with the highest average sales across four years. It reveals **seasonal peaks** in demand—particularly in **November and December**, likely due to holiday shopping. This insight is crucial for **inventory planning**, **marketing campaigns**, and **staffing decisions** during high-demand periods.
+
+## 📅 Sales Over Time
+
+This chart shows total sales over time, aggregated by month
+
+::: {.card .sales-time}
+<h5 class="card-title">
+
+Sales Over Time
+
+</h5>
+
+```{r sales-time, echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=10, fig.show='hold'}
+
+# Data transformation
+monthly_sales <- data %>% 
+  mutate(month = floor_date(order_date, "month")) %>% 
+  group_by(month) %>% 
+  summarise(total_sales = sum(sales, na.rm = TRUE))
+
+# Plotting the sales over time 
+ggplot(monthly_sales, aes(x = month, y = total_sales)) + 
+  geom_line(color = "#2C3E50", linewidth = 1.2) + 
+  labs(x = "Month", y = "Sales ($)") + theme_minimal()
+```
+:::
+
+This line chart shows how total sales have evolved month by month. It helps identify **long-term trends**, **growth patterns**, and **anomalies** in performance. This view is essential for understanding business momentum and for building **time series forecasting models**.
+
+## 📊 Sales by Product Segment
+
+This section will display a bar plot showing total sales for each product segment.
+
+::: {.card .product-segment}
+<h5 class="card-title">
+
+Sales by Product Segment
+
+</h5>
+
+```{r, , echo=FALSE, warning=FALSE, messsage=FALSE}
+
+# Summarize total sales by product segment
+segment_sales <- data %>%
+  group_by(segment) %>%
+  summarise(total_sales = sum(sales, na.rm = TRUE)) %>%
+  arrange(desc(total_sales))
+
+# Create a bar plot
+ggplot(segment_sales, aes(x = reorder(segment, total_sales), y = total_sales, fill = segment)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Total Sales by Product Segment",
+    x = "Product Segment",
+    y = "Total Sales ($)",
+    fill = "Segment"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+:::
+
+This bar chart breaks down total sales by customer segment (e.g., Consumer, Corporate, Home Office).
+
+It reveals which segments are the most profitable and where growth opportunities may lie. This information supports **targeted marketing** and **product development** strategies.
+
+## 📈 Year-over-Year (YoY) Sales Growth
+
+This shows how sales have changed each year, helping identify growth trends.
+
+::: {.card .product-segment}
+<h5 class="card-title">
+
+YoY Sales Growth
+
+</h5>
+
+```{r, , echo=FALSE, warning=FALSE, messsage=FALSE}
+
+yearly_sales <- data %>%
+  mutate(year = year(order_date)) %>%
+  group_by(year) %>%
+  summarise(total_sales = sum(sales, na.rm = TRUE)) %>%
+  mutate(yoy_growth = round((total_sales - lag(total_sales)) / lag(total_sales) * 100, 2))
+
+ggplot(yearly_sales, aes(x = factor(year), y = yoy_growth)) +
+  geom_col(fill = "#2C3E50") +
+  labs(title = "Year-over-Year Sales Growth", x = "Year", y = "Growth (%)") +
+  theme_minimal()
+```
+:::
+
+This chart compares total sales from one year to the next. It quantifies **annual growth rates**, helping assess whether the business is expanding or contracting. YoY growth is a key metric for **investors**, **executives**, and **strategic planning**.
+
+## 📅 Monthly Seasonality Trends
+
+This helps identify which months consistently perform better or worse.
+
+::: {.card .product-segment}
+<h5 class="card-title">
+
+Monthly Seasonality
+
+</h5>
+
+```{r, , echo=FALSE, warning=FALSE, messsage=FALSE}
+monthly_seasonality <- data %>%
+  mutate(month = month(order_date, label = TRUE)) %>%
+  group_by(month) %>%
+  summarise(total_sales = sum(sales, na.rm = TRUE))
+
+ggplot(monthly_seasonality, aes(x = month, y = total_sales)) +
+  geom_col(fill = "#2C3E50") +
+  labs(title = "Monthly Seasonality Trends", x = "Month", y = "Total Sales") +
+  theme_minimal()
+```
+:::
+
+This visualization shows how sales vary by month, averaged across all years. It uncovers **recurring seasonal patterns**, such as spikes in Q4 or dips in summer. Understanding seasonality is vital for **forecasting**, **budgeting**, and **resource allocation**.
+
+## 🧾 Sales by Category Over Time
+
+This shows how each product category performs over time.
+
+::: {.card .product-segment}
+<h5 class="card-title">
+
+Sales by Category Over Time
+
+</h5>
+
+```{r, , echo=FALSE, warning=FALSE, messsage=FALSE}
+category_sales <- data %>%
+  group_by(order_date, category) %>%
+  summarise(total_sales = sum(sales, na.rm = TRUE), .groups = "drop") %>%
+  arrange(order_date)
+
+ggplot(category_sales, aes(x = order_date, y = total_sales, color = category)) +
+  geom_line() +
+  labs(title = "Sales by Category Over Time", x = "Date", y = "Sales") +
+  theme_minimal()
+```
+:::
+
+This line chart tracks sales performance for each product category over time. It helps identify **category trends**, such as rising demand for technology or declining furniture sales.This insight supports **product portfolio optimization** and **category-specific promotions**.
+
+## 🔍 Time Series Decomposition
+
+This breaks down the sales time series into trend, seasonality, and residuals.
+
+::: {.card .product-segment}
+<h5 class="card-title">
+
+Sales by Category Over Time
+
+</h5>
+
+```{r, , echo=FALSE, warning=FALSE, messsage=FALSE}
+
+monthly_sales <- data %>%
+  mutate(month = floor_date(order_date, "month")) %>%
+  group_by(month) %>%
+  summarise(total_sales = sum(sales, na.rm = TRUE))
+
+
+sales_ts <- ts(monthly_sales$total_sales, frequency = 12, start = c(year(min(monthly_sales$month)), month(min(monthly_sales$month))))
+decomposed <- decompose(sales_ts)
+
+plot(decomposed)
+```
+:::
+
+This analysis breaks down the sales time series into three components:
+
+-   **Trend**: the long-term direction of sales.
+
+-   **Seasonality**: regular, repeating patterns (e.g., monthly or quarterly).
+
+-   **Residuals**: random noise or irregular fluctuations.
+
+Time series decomposition is foundational for **forecasting models**, as it helps isolate predictable patterns from random variation.
+
+## 📎 Appendix
+
+This dashboard was created using data from a public Kaggle dataset: [Sales Dataset on Kaggle](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting)
+
+

@@ -1,23 +1,184 @@
 [
   {
+    "objectID": "listings/03-Sales-Level-Forecasting.html",
+    "href": "listings/03-Sales-Level-Forecasting.html",
+    "title": "Sales Level Forecasting",
+    "section": "",
+    "text": "This dashboard is built using a sales dataset from Kaggle that captures four years of transactions from a global superstore. Each row represents a unique order, with details spanning customer segments, order and shipping dates, shipping methods, product categories, and sales revenue.\nThe dataset enables analysis of key business insights including:\n\nSales trends over time\nProduct and category profitability\nCustomer behavior by segment"
+  },
+  {
+    "objectID": "listings/03-Sales-Level-Forecasting.html#appendix",
+    "href": "listings/03-Sales-Level-Forecasting.html#appendix",
+    "title": "Sales Level Forecasting",
+    "section": "📎 Appendix",
+    "text": "📎 Appendix\nThis dashboard was created using data from a public Kaggle dataset: Sales Dataset on Kaggle"
+  },
+  {
+    "objectID": "listings/02-Order-Level-Forecasting.html",
+    "href": "listings/02-Order-Level-Forecasting.html",
+    "title": "Order Level Forecasting",
+    "section": "",
+    "text": "This dashboard is built using a sales dataset from Kaggle that captures four years of transactions from a global superstore. Each row represents a unique order, with details spanning customer segments, order and shipping dates, shipping methods, product categories, and sales revenue.\nThe dataset enables analysis of key business insights including:\n\nSales trends over time\nProduct and category profitability\nCustomer behavior by segment"
+  },
+  {
+    "objectID": "listings/02-Order-Level-Forecasting.html#appendix",
+    "href": "listings/02-Order-Level-Forecasting.html#appendix",
+    "title": "Order Level Forecasting",
+    "section": "📎 Appendix",
+    "text": "📎 Appendix\nThis dashboard was created using data from a public Kaggle dataset: Sales Dataset on Kaggle"
+  },
+  {
+    "objectID": "resume/Resume.html",
+    "href": "resume/Resume.html",
+    "title": "Professional Summary",
+    "section": "",
+    "text": "Professional Summary\nAnalytical and results-driven finance professional with a Bachelor of Science in Finance and a minor in Economics from the University of Oregon. Currently serving as a Financial Analyst at HD Supply, with a strong track record in P&L management, forecasting, and cost analysis. Demonstrated ability to support cross-functional teams through data-driven insights and strategic recommendations. Previous experience includes roles in supply chain analysis and entrepreneurial ventures, showcasing a unique blend of corporate finance expertise and entrepreneurial acumen. Adept at leveraging Excel and financial tools to drive operational efficiency and cost savings. Passionate about advancing into financial planning and analysis leadership, with long-term goals in real estate investment and business development.\n\n\nTechnical Skills\n\nProgramming Languages: R, SQL\nWeb Technologies: HTML, Quarto\n\n\n\nEducation\n\n\n# A tibble: 2 × 5\n  what                              when                       with  where why  \n  &lt;chr&gt;                             &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt; &lt;lis&gt;\n1 Master of Business Administration 2023 – Expected Graduatio… Coll… Cali… &lt;chr&gt;\n2 Bachelor of Science               2018 – 2021                Lund… Univ… &lt;chr&gt;\n\n\n\n\nWork Experience\n\n\n# A tibble: 2 × 5\n  what                     when                         with      where why   \n  &lt;chr&gt;                    &lt;chr&gt;                        &lt;chr&gt;     &lt;chr&gt; &lt;list&gt;\n1 Senior Financial Analyst January 2024 – May 2025      HD Supply &lt;NA&gt;  &lt;list&gt;\n2 Financial Analyst        January 2022 – December 2023 HD Supply &lt;NA&gt;  &lt;list&gt;"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Hi, I’m [Your Name Here]",
+    "title": "Hi, I’m Annabelle",
     "section": "",
-    "text": "I’m a [your profession or area of focus]. I specialize in transforming complex information into clear, engaging, and actionable insights."
+    "text": "I’m a Financial Analyst. I specialize in transforming complex information into clear, engaging, and actionable insights."
   },
   {
     "objectID": "index.html#about-me",
     "href": "index.html#about-me",
-    "title": "Hi, I’m [Your Name Here]",
+    "title": "Hi, I’m Annabelle",
     "section": "About Me",
-    "text": "About Me\nI hold a [Your Degree or Current Program] from [Your Institution]."
+    "text": "About Me\nI hold a  Bachelor’s degree in Business Administration from University of Oregon, where I developed a strong foundation in finance, analytics, and strategic thinking."
   },
   {
     "objectID": "index.html#lets-connect",
     "href": "index.html#lets-connect",
-    "title": "Hi, I’m [Your Name Here]",
+    "title": "Hi, I’m Annabelle",
     "section": "Let’s Connect",
     "text": "Let’s Connect\nYou can email me or connect on LinkedIn.\n\nWelcome to my portfolio."
+  },
+  {
+    "objectID": "financial-analytics.html",
+    "href": "financial-analytics.html",
+    "title": "Financial Analytics Project",
+    "section": "",
+    "text": "💼 Overview\nBelow are selected projects that showcase my ability to apply financial analytics to real-world business challenges. These dashboards and analyses reflect a strong foundation in combining statistical modeling, data visualization, and strategic thinking to uncover insights and drive data-informed decisions.\nFrom forecasting future sales to analyzing historical trends, each project demonstrates how complex financial data can be transformed into clear, actionable intelligence that supports business growth and operational planning.\n\n\n🔍 What You’ll Find\n\n📊 Financial Performance Analysis: Identify patterns, anomalies, and growth opportunities in historical sales and order data.\n📈 Data Visualization: Interactive dashboards that transform raw data into decision-ready insights.\n📅 Sales Trend Analysis: Year-over-year and seasonal comparisons to uncover performance shifts.\n👥 Customer & Market Insights: Segment-level forecasting to guide staffing and inventory strategies.\n🔮 Predictive Forecasting: ARIMA-based models to project future sales and support confident planning.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Exploration and Summaries\n\n\n\nSales\n\nVisualizations\n\nFinancial Analytics\n\nForecasting\n\n\n\nA dashboard summarizing historical sales data and trends.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOrder Level Forecasting\n\n\n\nSales\n\nVisualizations\n\nFinancial Analytics\n\nVolume Analytics\n\nForecasting\n\n\n\nA dashboard summarizing historical order trends and predicting future order volume\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nActionable Insights on Forecasted Sales\n\n\n\nSales\n\nVisualizations\n\nFinancial Analytics\n\nVolume Analytics\n\nForecasting\n\n\n\nA dashboard Analyzing Forecast Results and Actionable Insights on Predictions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSales Level Forecasting\n\n\n\nSales\n\nVisualizations\n\nFinancial Analytics\n\nVolume Analytics\n\nForecasting\n\n\n\nA dashboard summarizing historical sales trends and predicting future order sales\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Résumé",
+    "section": "",
+    "text": "You can view a PDF version of my résumé here.\n\nProfessional Summary\nAnalytical and results-driven finance professional with a Bachelor of Science in Finance and a minor in Economics from the University of Oregon. Currently serving as a Financial Analyst at HD Supply, with a strong track record in P&L management, forecasting, and cost analysis. Demonstrated ability to support cross-functional teams through data-driven insights and strategic recommendations. Previous experience includes roles in supply chain analysis and entrepreneurial ventures, showcasing a unique blend of corporate finance expertise and entrepreneurial acumen. Adept at leveraging Excel and financial tools to drive operational efficiency and cost savings. Passionate about advancing into financial planning and analysis leadership, with long-term goals in real estate investment and business development.\n\n\nTechnical Skills\n\nProgramming Languages: R, SQL\nWeb Technologies: HTML, Quarto, Analytics Tools\n\n\n\nEducation\n\n\n\n\n\n\n\n\n\nDegree\nYear\nCollege / Department\nInstitution\n\n\n\n\nMasters in Business Administration\n2023-2025\nCollege of Business Administration\nCal Poly Pomona\n\n\nBachelor of Science\n2018-2021\nLundquist College of Business\nUniversity of Oregon\n\n\n\n\n\nWork Experience\n\nSenior Financial Analyst, HD Supply\n1/1/2024 – Present\n\nSpearhead nationwide P&L forecasting and reporting for 120+ distribution centers, aligning financial strategy with operational goals.\nPartner with executive leadership to deliver high-impact insights that drive multimillion-dollar cost savings and performance improvements.\nNavigate advanced reporting systems using SQL, Excel, and Power BI, enabling real-time visibility into financial and operational KPIs.\nLead cross-functional initiatives focused on financial planning, capital allocation, and strategic growth opportunities.\n\nChampion automation and data governance efforts, improving reporting accuracy and reducing manual processes by 40%.\n\n\n\n\nFinancial Analyst, HD Supply\n1/1/2022 – 12/31/2023\n\nConducted monthly variance analysis and financial reviews across key business units, ensuring alignment with corporate targets.\nBuilt dynamic forecasting models in Anaplan and Excel to support scenario planning and business case development.\nDelivered actionable insights to regional managers, influencing decisions on pricing, staffing, and resource allocation.\nEnhanced financial storytelling through interactive dashboards and marketing analytics tools.\nContributed to digital transformation projects, streamlining reporting workflows and improving data accessibility."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html",
+    "href": "listings/01-Data-Exploration-and-Summaries.html",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "This dashboard is built using a sales dataset from Kaggle that captures four years of transactions from a global superstore. Each row represents a unique order, with details spanning customer segments, order and shipping dates, shipping methods, product categories, and sales revenue.\nThe dataset enables analysis of key business insights including:\n\nSales trends over time\nProduct and category profitability\nCustomer behavior by segment\n\n\n\n\n\n\n\n$2,261,537\n\n\n\n\n\n4,922\n\n\n\n\n\n$230.77\n\n\n\nThese metrics provide a high-level overview of the dataset’s performance.\n\nTotal Sales reflects the overall revenue generated.\nNumber of Orders shows the volume of transactions.\nAverage Sales per Order helps assess the typical order value.\nTogether, these figures offer a snapshot of business scale and customer purchasing behavior.\n\n\n\n\n\n\n\nNovember: $87,540.43December: $80,370.04September: $75,025.85\n\n\nThis section highlights the months with the highest average sales across four years. It reveals seasonal peaks in demand—particularly in November and December, likely due to holiday shopping. This insight is crucial for inventory planning, marketing campaigns, and staffing decisions during high-demand periods.\n\n\n\nThis chart shows total sales over time, aggregated by month\n\n\n\n\n\n\n\n\n\n\n\n\nThis line chart shows how total sales have evolved month by month. It helps identify long-term trends, growth patterns, and anomalies in performance. This view is essential for understanding business momentum and for building time series forecasting models.\n\n\n\nThis section will display a bar plot showing total sales for each product segment.\n\n\n\n\n\n\n\n\n\n\n\n\nThis bar chart breaks down total sales by customer segment (e.g., Consumer, Corporate, Home Office).\nIt reveals which segments are the most profitable and where growth opportunities may lie. This information supports targeted marketing and product development strategies.\n\n\n\nThis shows how sales have changed each year, helping identify growth trends.\n\n\n\n\n\n\n\n\n\n\n\n\nThis chart compares total sales from one year to the next. It quantifies annual growth rates, helping assess whether the business is expanding or contracting. YoY growth is a key metric for investors, executives, and strategic planning.\n\n\n\nThis helps identify which months consistently perform better or worse.\n\n\n\n\n\n\n\n\n\n\n\n\nThis visualization shows how sales vary by month, averaged across all years. It uncovers recurring seasonal patterns, such as spikes in Q4 or dips in summer. Understanding seasonality is vital for forecasting, budgeting, and resource allocation.\n\n\n\nThis shows how each product category performs over time.\n\n\n\n\n\n\n\n\n\n\n\n\nThis line chart tracks sales performance for each product category over time. It helps identify category trends, such as rising demand for technology or declining furniture sales.This insight supports product portfolio optimization and category-specific promotions.\n\n\n\nThis breaks down the sales time series into trend, seasonality, and residuals.\n\n\n\n\n\n\n\n\n\n\n\n\nThis analysis breaks down the sales time series into three components:\n\nTrend: the long-term direction of sales.\nSeasonality: regular, repeating patterns (e.g., monthly or quarterly).\nResiduals: random noise or irregular fluctuations.\n\nTime series decomposition is foundational for forecasting models, as it helps isolate predictable patterns from random variation.\n\n\n\nThis dashboard was created using data from a public Kaggle dataset: Sales Dataset on Kaggle"
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#summary-stats",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#summary-stats",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "$2,261,537\n\n\n\n\n\n4,922\n\n\n\n\n\n$230.77\n\n\n\nThese metrics provide a high-level overview of the dataset’s performance.\n\nTotal Sales reflects the overall revenue generated.\nNumber of Orders shows the volume of transactions.\nAverage Sales per Order helps assess the typical order value.\nTogether, these figures offer a snapshot of business scale and customer purchasing behavior."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#top-3-sales-months",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#top-3-sales-months",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "November: $87,540.43December: $80,370.04September: $75,025.85\n\n\nThis section highlights the months with the highest average sales across four years. It reveals seasonal peaks in demand—particularly in November and December, likely due to holiday shopping. This insight is crucial for inventory planning, marketing campaigns, and staffing decisions during high-demand periods."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#sales-over-time",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#sales-over-time",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "This chart shows total sales over time, aggregated by month\n\n\n\n\n\n\n\n\n\n\n\n\nThis line chart shows how total sales have evolved month by month. It helps identify long-term trends, growth patterns, and anomalies in performance. This view is essential for understanding business momentum and for building time series forecasting models."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#sales-by-product-segment",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#sales-by-product-segment",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "This section will display a bar plot showing total sales for each product segment.\n\n\n\n\n\n\n\n\n\n\n\n\nThis bar chart breaks down total sales by customer segment (e.g., Consumer, Corporate, Home Office).\nIt reveals which segments are the most profitable and where growth opportunities may lie. This information supports targeted marketing and product development strategies."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#year-over-year-yoy-sales-growth",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#year-over-year-yoy-sales-growth",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "This shows how sales have changed each year, helping identify growth trends.\n\n\n\n\n\n\n\n\n\n\n\n\nThis chart compares total sales from one year to the next. It quantifies annual growth rates, helping assess whether the business is expanding or contracting. YoY growth is a key metric for investors, executives, and strategic planning."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#monthly-seasonality-trends",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#monthly-seasonality-trends",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "This helps identify which months consistently perform better or worse.\n\n\n\n\n\n\n\n\n\n\n\n\nThis visualization shows how sales vary by month, averaged across all years. It uncovers recurring seasonal patterns, such as spikes in Q4 or dips in summer. Understanding seasonality is vital for forecasting, budgeting, and resource allocation."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#sales-by-category-over-time",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#sales-by-category-over-time",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "This shows how each product category performs over time.\n\n\n\n\n\n\n\n\n\n\n\n\nThis line chart tracks sales performance for each product category over time. It helps identify category trends, such as rising demand for technology or declining furniture sales.This insight supports product portfolio optimization and category-specific promotions."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#time-series-decomposition",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#time-series-decomposition",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "This breaks down the sales time series into trend, seasonality, and residuals.\n\n\n\n\n\n\n\n\n\n\n\n\nThis analysis breaks down the sales time series into three components:\n\nTrend: the long-term direction of sales.\nSeasonality: regular, repeating patterns (e.g., monthly or quarterly).\nResiduals: random noise or irregular fluctuations.\n\nTime series decomposition is foundational for forecasting models, as it helps isolate predictable patterns from random variation."
+  },
+  {
+    "objectID": "listings/01-Data-Exploration-and-Summaries.html#appendix",
+    "href": "listings/01-Data-Exploration-and-Summaries.html#appendix",
+    "title": "Data Exploration and Summaries",
+    "section": "",
+    "text": "This dashboard was created using data from a public Kaggle dataset: Sales Dataset on Kaggle"
+  },
+  {
+    "objectID": "listings/04-Actionable-Insights-On-Forecasting-Results.html",
+    "href": "listings/04-Actionable-Insights-On-Forecasting-Results.html",
+    "title": "Actionable Insights on Forecasted Sales",
+    "section": "",
+    "text": "🛒 About the Dataset\nThis dashboard is built using a sales dataset from Kaggle that captures four years of transactions from a global superstore. Each row represents a unique order, with details spanning customer segments, order and shipping dates, shipping methods, product categories, and sales revenue.\nThe dataset enables analysis of key business insights including:\n\nSales trends over time\nProduct and category profitability\nCustomer behavior by segment\n\n\n\n✅ 12 Month Sales Forecast Trended\n\n\n\n\n\n\n📅 12-Month Sales Forecast\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJan.2019\nFeb.2019\nMar.2019\nApr.2019\nMay.2019\nJun.2019\nJul.2019\nAug.2019\nSep.2019\nOct.2019\nNov.2019\nDec.2019\n\n\n\n\nHigh Estimate\n$61,099\n$52,279\n$87,023\n$71,775\n$76,838\n$74,936\n$74,954\n$78,567\n$113,961\n$89,988\n$127,655\n$120,070\n\n\nExpected Forecast\n$45,698\n$36,636\n$71,142\n$55,660\n$60,492\n$58,363\n$58,157\n$61,548\n$96,722\n$72,534\n$109,988\n$102,191\n\n\nLow Estimate\n$30,296\n$20,993\n$55,262\n$39,545\n$44,147\n$41,789\n$41,359\n$44,528\n$79,484\n$55,080\n$92,320\n$84,313\n\n\n\n\n\n\nThis transposed table presents a 12-month forecast of total monthly sales using an ARIMA model. It includes high, expected, and low estimates for each month, offering a clear and concise view of projected revenue trends. The format supports quick comparisons across months and helps stakeholders plan for best- and worst-case scenarios.\n\n\n🗂️ 12-Month Sales Forecast by Product Category\n\n\n📊 Forecast Tables for Furniture, Office Supplies, and Technology\n\n\n\n\n📅 12-Month Sales Forecast - Furniture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJan.2019\nFeb.2019\nMar.2019\nApr.2019\nMay.2019\nJun.2019\nJul.2019\nAug.2019\nSep.2019\nOct.2019\nNov.2019\nDec.2019\n\n\n\n\nHigh Estimate\n$14,386\n$12,829\n$19,184\n$18,819\n$23,426\n$22,170\n$19,568\n$21,124\n$35,146\n$24,119\n$41,829\n$41,717\n\n\nExpected Forecast\n$9,447\n$7,890\n$14,245\n$13,881\n$18,488\n$17,232\n$14,629\n$16,186\n$30,208\n$19,181\n$36,890\n$36,778\n\n\nLow Estimate\n$4,509\n$2,951\n$9,306\n$8,942\n$13,549\n$12,293\n$9,691\n$11,247\n$25,269\n$14,242\n$31,952\n$31,839\n\n\n\n\n\n\n📅 12-Month Sales Forecast - Office Supplies\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJan.2019\nFeb.2019\nMar.2019\nApr.2019\nMay.2019\nJun.2019\nJul.2019\nAug.2019\nSep.2019\nOct.2019\nNov.2019\nDec.2019\n\n\n\n\nHigh Estimate\n$25,677\n$21,617\n$30,047\n$28,557\n$27,549\n$28,597\n$27,297\n$33,703\n$42,744\n$32,036\n$42,428\n$43,512\n\n\nExpected Forecast\n$17,830\n$13,645\n$21,953\n$20,342\n$19,215\n$20,146\n$18,731\n$25,023\n$33,951\n$23,132\n$33,414\n$34,390\n\n\nLow Estimate\n$9,982\n$5,673\n$13,859\n$12,127\n$10,882\n$11,696\n$10,165\n$16,343\n$25,158\n$14,229\n$24,401\n$25,268\n\n\n\n\n\n\n📅 12-Month Sales Forecast - Technology\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJan.2019\nFeb.2019\nMar.2019\nApr.2019\nMay.2019\nJun.2019\nJul.2019\nAug.2019\nSep.2019\nOct.2019\nNov.2019\nDec.2019\n\n\n\n\nHigh Estimate\n$27,776\n$23,960\n$44,319\n$28,916\n$35,134\n$32,321\n$34,696\n$30,066\n$39,010\n$47,938\n$56,159\n$37,521\n\n\nExpected Forecast\n$16,256\n$12,439\n$32,798\n$17,396\n$23,613\n$20,801\n$23,176\n$18,546\n$27,490\n$36,418\n$44,638\n$26,000\n\n\nLow Estimate\n$4,736\n$919\n$21,278\n$5,875\n$12,093\n$9,281\n$11,655\n$7,026\n$15,969\n$24,898\n$33,118\n$14,480\n\n\n\n\n\n\nThese three transposed tables provide detailed 12-month sales forecasts for each product category—Furniture, Office Supplies, and Technology. Each table includes high, expected, and low estimates, allowing for category-specific planning and performance tracking. This breakdown supports more granular decision-making in inventory, marketing, and budgeting.\n\n\n📈 Actionable Insights\n\n\n📈 Actionable Insights\n\n\n\n\n🏆 Top 10 Products by Sales – Furniture\n\n\n\n\n\n\nproduct_name\ntotal_sales\n\n\n\n\nHON 5400 Series Task Chairs for Big and Tall\n$21,871\n\n\nRiverside Palais Royal Lawyers Bookcase, Royale Cherry Finish\n$15,611\n\n\nBretford Rectangular Conference Table Tops\n$12,995\n\n\nGlobal Troy Executive Leather Low-Back Tilter\n$12,975\n\n\nSAFCO Arco Folding Chair\n$11,573\n\n\nDMI Eclipse Executive Suite Bookcases\n$11,047\n\n\nHon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back\n$10,638\n\n\nChromcraft Bull-Nose Wood Oval Conference Tables & Bases\n$9,587\n\n\nGuestStacker Chair with Chrome Finish Legs\n$9,071\n\n\nOffice Star - Professional Matrix Back Chair with 2-to-1 Synchro Tilt and Mesh Fabric Seat\n$8,774\n\n\n\n\n\n\n🏆 Top 10 Products by Sales – Office Supplies\n\n\n\n\n\n\nproduct_name\ntotal_sales\n\n\n\n\nFellowes PB500 Electric Punch Plastic Comb Binding Machine with Manual Bind\n$27,453\n\n\nGBC DocuBind TL300 Electric Binding System\n$19,823\n\n\nGBC Ibimaster 500 Manual ProClick Binding System\n$19,024\n\n\nGBC DocuBind P400 Electric Binding System\n$17,965\n\n\nHigh Speed Automatic Electric Letter Opener\n$17,030\n\n\nMartin Yale Chadless Opener Electric Letter Opener\n$16,656\n\n\nIbico EPK-21 Electric Binding System\n$15,876\n\n\nTennsco 6- and 18-Compartment Lockers\n$10,076\n\n\nTennsco Double-Tier Lockers\n$9,631\n\n\nTennsco Single-Tier Lockers\n$9,158\n\n\n\n\n\n\n🏆 Top 10 Products by Sales – Technology\n\n\n\n\n\n\nproduct_name\ntotal_sales\n\n\n\n\nCanon imageCLASS 2200 Advanced Copier\n$61,600\n\n\nCisco TelePresence System EX90 Videoconferencing Unit\n$22,638\n\n\nHewlett Packard LaserJet 3310 Copier\n$18,840\n\n\nHP Designjet T520 Inkjet Large Format Printer - 24” Color\n$18,375\n\n\nLexmark MX611dhe Monochrome Laser Printer\n$16,830\n\n\n3D Systems Cube Printer, 2nd Generation, Magenta\n$14,300\n\n\nSamsung Galaxy Mega 6.3\n$13,944\n\n\nApple iPhone 5\n$12,997\n\n\nCubify CubeX 3D Printer Double Head Print\n$11,100\n\n\nPlantronics CS510 - Over-the-Head monaural Wireless Headset System\n$10,822\n\n\n\n\n\n\n\n\n📊 Financial Forecast Summary\n\n🪑 Furniture – 12-Month Forecast Summary\n\nTotal High Estimate: $294,317\n\nTotal Expected Forecast: $235,055\n\nTotal Low Estimate: $175,790\n\n📈 Peak Month: November 2019\n\n📉 Lowest Month: February 2019\n\nImplications:\nFurniture shows moderate growth potential with a strong Q4 peak. Inventory planning should ramp up ahead of November. February may be ideal for cost-saving initiatives or maintenance.\nStaffing Note:\nConsider scaling fulfillment and delivery staff in Q4. Use February for training or cross-departmental support.\n\n\n🖇️ Office Supplies – 12-Month Forecast Summary\n\nTotal High Estimate: $383,764\n\nTotal Expected Forecast: $281,772\n\nTotal Low Estimate: $179,783\n\n📈 Peak Month: December 2019\n\n📉 Lowest Month: February 2019\n\nImplications:\nOffice Supplies show strong seasonal demand, especially in December. This category is highly responsive to B2B and institutional cycles.\nStaffing Note:\nPrepare for a surge in packaging and customer service in Q4. February may allow for reduced shifts or reallocation to digital support.\n\n\n💻 Technology – 12-Month Forecast Summary\n\nTotal High Estimate: $437,816\n\nTotal Expected Forecast: $299,571\n\nTotal Low Estimate: $161,328\n\n📈 Peak Month: November 2019\n\n📉 Lowest Month: February 2019\n\nImplications:\nTechnology is the top-performing category across all forecast scenarios. High-value items drive strong Q4 performance, especially in November.\nStaffing Note:\nExpand technical support and B2B sales teams ahead of Q4. February may be used for product training or customer retention campaigns.\n\n\n📈 Overall Forecast Insights\n\nBest Performing Category: Technology (Highest total forecast across all scenarios)\nWorst Case Total Sales (All Categories, Low Estimate): $516,901\n\nExpected Total Sales (All Categories): $816,398\n\nBest Case Total Sales (All Categories, High Estimate): $1,115,897\n\nStrategic Takeaways: - Q4 (Oct–Dec) is critical across all categories—plan inventory, staffing, and marketing accordingly. - February is consistently the weakest month—ideal for cost-saving, training, or system upgrades. - Technology should be prioritized for investment, marketing, and enterprise sales focus.\n\n\n\n📊 Confidence-Based Actionable Insights\n\n🪑 Furniture – Forecast-Based Actions\nUpper Bound (High Sales)\n- Increase inventory of top sellers like HON Task Chairs and Riverside Bookcases.\n- Expand marketing and sales outreach to corporate clients.\n- Staffing: Hire or reassign additional warehouse staff and delivery personnel. Consider temporary staffing for peak months.\nExpected Forecast\n- Maintain current stock levels and marketing cadence.\n- Focus on fulfillment efficiency and customer satisfaction.\n- Staffing: Keep staffing steady; cross-train employees to handle multiple roles.\nLower Bound (Low Sales)\n- Delay large inventory purchases and reduce marketing spend.\n- Offer targeted promotions to stimulate demand.\n- Staffing: Reduce overtime or shift hours. Reallocate staff to stronger categories or customer service.\n\n\n🖇️ Office Supplies – Forecast-Based Actions\nUpper Bound (High Sales)\n- Stock up on binding machines and consumables.\n- Launch B2B subscription programs for recurring orders.\n- Staffing: Add fulfillment staff for packaging and shipping. Increase customer support for B2B clients.\nExpected Forecast\n- Maintain steady supply and pricing.\n- Focus on customer retention and upselling.\n- Staffing: Maintain current staffing levels. Use part-time or flexible staff to manage fluctuations.\nLower Bound (Low Sales)\n- Reduce inventory of slow-moving SKUs.\n- Promote digital alternatives or bundle offers.\n- Staffing: Consolidate roles or reduce hours in fulfillment. Shift staff to marketing or digital sales support.\n\n\n💻 Technology – Forecast-Based Actions\nUpper Bound (High Sales)\n- Prioritize inventory for high-value items like Canon Copiers and Cisco TelePresence.\n- Offer premium service packages and enterprise solutions.\n- Staffing: Hire or contract technical staff for installations and support. Expand B2B account teams.\nExpected Forecast\n- Maintain balanced inventory and support resources.\n- Focus on upselling accessories and services.\n- Staffing: Maintain current staffing. Provide training to improve cross-selling and support.\nLower Bound (Low Sales)\n- Delay restocking expensive items.\n- Promote trade-in or upgrade programs.\n- Staffing: Freeze hiring and reduce hours for technical support. Reassign staff to retention or education roles.\n\n\n\n📎 Appendix\nThis dashboard was created using data from a public Kaggle dataset: Sales Dataset on Kaggle"
+  },
+  {
+    "objectID": "Projects.html",
+    "href": "Projects.html",
+    "title": "Featured Projects",
+    "section": "",
+    "text": "Below is a list of projects I have worked on in my career in Financial analytics. These projects showcase my ability to analyze complex financial data, prepare detailed reports, and provide actionable insights that support strategic decision-making and enhance financial performance."
+  },
+  {
+    "objectID": "Projects.html#amazon-sales-analysis-and-campaign-recommendations",
+    "href": "Projects.html#amazon-sales-analysis-and-campaign-recommendations",
+    "title": "Featured Projects",
+    "section": "Amazon Sales Analysis and Campaign Recommendations",
+    "text": "Amazon Sales Analysis and Campaign Recommendations\nIn my role overseeing the e-commerce department for an aerospace company, I conducted comprehensive competitor pricing analyses to identify market opportunities and inform strategic pricing decisions. Following a proposed price reduction, I implemented targeted advertising campaigns to enhance product visibility and drive sales. Utilizing Amazon’s campaign reporting tools, I monitored key performance indicators such as return on ad spend (ROAS), advertising cost of sale (ACOS), and new-to-brand metrics . This data-driven approach enabled me to assess campaign effectiveness, adjust strategies in real-time, and optimize advertising spend to maximize sales performance. We saw a 20% increase in sales as a result of this project and generated reviews that benefitted future sales."
+  },
+  {
+    "objectID": "Projects.html#picker-performance-tracker-implementation",
+    "href": "Projects.html#picker-performance-tracker-implementation",
+    "title": "Featured Projects",
+    "section": "Picker Performance Tracker Implementation",
+    "text": "Picker Performance Tracker Implementation\nIn my role supporting warehouse operations, I developed and implemented a comprehensive picker performance tracker that calculated lines picked per hour and analyzed trends to establish average benchmarks for each machine. By setting these performance targets, I introduced a tracking program that allowed pickers to monitor their progress in real-time. This initiative fostered a culture of accountability and continuous improvement. As a result, overall productivity increased by 15%, demonstrating the effectiveness of data-driven performance management in enhancing operational efficiency."
+  },
+  {
+    "objectID": "Projects.html#shrink-reporting-process-improvement",
+    "href": "Projects.html#shrink-reporting-process-improvement",
+    "title": "Featured Projects",
+    "section": "Shrink Reporting & Process Improvement",
+    "text": "Shrink Reporting & Process Improvement\nLeveraging advanced Excel and SQL skills, I developed a unique join method that enabled accurate line-level reporting of shrink across multiple data sources. This solution allowed us to categorize shrink by type and operational process, providing unprecedented visibility into root causes. The insights generated through this analysis were used to engage stakeholders across the network, driving targeted process improvements and reducing overall shrink rates."
+  },
+  {
+    "objectID": "Projects.html#pallet-pricing-analysis-field-collaboration",
+    "href": "Projects.html#pallet-pricing-analysis-field-collaboration",
+    "title": "Featured Projects",
+    "section": "Pallet Pricing Analysis & Field Collaboration",
+    "text": "Pallet Pricing Analysis & Field Collaboration\nUtilizing internal company data, I conducted comprehensive analyses of pallet pricing trends, comparing regional price fluctuations and identifying factors influencing cost variances. By compiling detailed reports and presenting actionable insights, I facilitated discussions with field teams to explore potential pricing adjustments. This collaborative approach led to strategic vendor alignment and price negotiations. These changes enhanced cost efficiency and aligned with market dynamics."
   }
 ]

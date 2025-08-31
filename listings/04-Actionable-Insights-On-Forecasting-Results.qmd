@@ -1,0 +1,407 @@
+---
+title: "Actionable Insights on Forecasted Sales"
+description: "A dashboard Analyzing Forecast Results and Actionable Insights on Predictions"
+categories: [Sales, Visualizations, Financial Analytics, Volume Analytics, Forecasting]
+index: 2
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+
+# Load Libraries
+library(janitor) 
+library(tidyverse) 
+library(lubridate)
+library(forecast)
+library(shiny)
+library(plotly)
+library(dplyr)
+library(knitr)
+library(scales)
+library(tidyr)
+
+
+# Load Data
+data <- read.csv("../data/SuperStoreSales.csv")
+
+# clean column names using janitor
+data <- clean_names(data)
+
+# check for missing values
+data %>% 
+  is.na() %>% 
+  sum()
+
+# pull records with missing values
+sapply(data, function(x)which(is.na(x)))
+data[c(2235,5275,8799,9147,9148,9149,9387,9388,9389,9390,9742),]
+
+# na values driven by burlington city missing postal code. add postal code for burlington
+data$postal_code<-replace_na(data$postal_code,05401)
+
+# Check for remaining missing values
+data %>% 
+  is.na() %>% 
+  sum()
+
+# Convert dates to Date format
+data$order_date <- as.Date(data$order_date, format = "%d/%m/%Y")
+data$ship_date <- as.Date(data$ship_date, format = "%d/%m/%Y")
+
+# Calculate summary stats
+total_sales <- sum(data$sales, na.rm = TRUE)
+num_orders <- n_distinct(data$order_id)
+avg_sales_per_order <- round(mean(data$sales, na.rm = TRUE), 2)
+
+# Format total sales using scales package
+formatted_total_sales <- scales::dollar(total_sales)
+
+# Comma-separated number of orders
+formatted_num_orders <- scales::comma(num_orders)
+
+ # Dollar sign for avg sales
+formatted_avg_sales_per_order <- scales::dollar(avg_sales_per_order) 
+```
+
+<!-- CSS for card layout -->
+
+```{=html}
+<style>
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure the container takes up full width */
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    width: 45%; /* Default width for cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  /* Larger cards for specific sections like Sales Over Time and Top 3 Sales Months */
+  .card.sales-time {
+    width: 100% !important;  /* Ensure this card takes full width */
+    min-height: 500px;  /* Increase height to accommodate the graph */
+    padding: 20px;
+    margin-bottom: 40px; /* Extra space for large cards */
+  }
+
+  .card.top-sales {
+    width: 100% !important; /* Keep this card full width if needed */
+    min-height: 400px;
+    padding: 20px;
+  }
+  
+  .card.product-segment {
+  width: 100% !important;
+  min-height: 400px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+  @media (min-width: 768px) {
+    .card {
+      width: 30%; /* 3 cards in a row for larger screens */
+    }
+
+    /* Keep the larger cards at 100% width for wide plots/tables */
+    .card.sales-time {
+      width: 100% !important;  /* Full width for Sales Over Time on larger screens */
+    }
+
+    .card.top-sales {
+      width: 48%; /* Slightly larger for top-sales */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      width: 100%; /* Stack vertically on mobile */
+    }
+
+    .card.sales-time {
+      width: 100% !important;  /* Ensure full width on mobile */
+      min-height: 300px;  /* Adjust for smaller screens */
+    }
+  }
+</style>
+```
+
+# 🛒 About the Dataset
+
+This dashboard is built using a sales dataset from Kaggle that captures **four years of transactions** from a global superstore. Each row represents a unique order, with details spanning **customer segments**, **order and shipping dates**, **shipping methods**, **product categories**, and **sales revenue**.
+
+The dataset enables analysis of key business insights including:
+
+-   **Sales trends over time**
+
+-   **Product and category profitability**
+
+-   **Customer behavior by segment**
+
+
+# ✅ 12 Month Sales Forecast Trended
+
+::: {.card .sales-time}
+<h5 class="card-title">
+
+</h5>
+
+```{r transposed-forecast-table, echo=FALSE, message=FALSE, warning=FALSE}
+
+# Prepare monthly sales data
+sales_by_month <- data %>%
+  mutate(month = floor_date(order_date, "month")) %>%
+  group_by(month) %>%
+  summarise(sales_volume = sum(sales, na.rm = TRUE), .groups = "drop")
+
+# Convert to time series
+ts_data <- ts(sales_by_month$sales_volume,
+              start = c(year(min(sales_by_month$month)), month(min(sales_by_month$month))),
+              frequency = 12)
+
+# Fit ARIMA model
+fit <- auto.arima(ts_data, seasonal = TRUE)
+
+# Forecast next 12 months
+forecasted <- forecast(fit, h = 12)
+
+# Create forecast table
+forecast_table <- data.frame(
+  Month = format(seq(max(sales_by_month$month) %m+% months(1), by = "month", length.out = 12), "%b.%Y"),
+  `High Estimate` = forecasted$upper[,1],
+  `Expected Forecast` = forecasted$mean,
+  `Low Estimate` = forecasted$lower[,1]
+)
+
+# Transpose and format as currency
+transposed_table <- t(forecast_table[,-1])
+colnames(transposed_table) <- forecast_table$Month
+rownames(transposed_table) <- c("High Estimate", "Expected Forecast", "Low Estimate")
+transposed_table <- apply(transposed_table, c(1,2), function(x) dollar(x, accuracy = 1))
+
+# Display the transposed table
+kable(transposed_table, caption = "📅 12-Month Sales Forecast")
+```
+:::
+
+This transposed table presents a 12-month forecast of total monthly sales using an ARIMA model. It includes high, expected, and low estimates for each month, offering a clear and concise view of projected revenue trends. The format supports quick comparisons across months and helps stakeholders plan for best- and worst-case scenarios.
+
+# 🗂️ 12-Month Sales Forecast by Product Category
+
+::: {.card .sales-time}
+<h5 class="card-title">
+
+📊 Forecast Tables for Furniture, Office Supplies, and Technology
+
+</h5>
+
+```{r 12monthfcstbyprodcat, echo=FALSE, message=FALSE, warning=FALSE}
+
+# Prepare monthly sales data by category
+category_monthly_sales <- data %>%
+  mutate(month = floor_date(order_date, "month")) %>%
+  group_by(category, month) %>%
+  summarise(sales_volume = sum(sales, na.rm = TRUE), .groups = "drop")
+
+# Function to forecast and format table for a category
+forecast_category_table <- function(df, category_name) {
+  df <- df %>%
+    filter(category == category_name) %>%
+    complete(month = seq(min(month), max(month), by = "month"), fill = list(sales_volume = 0)) %>%
+    arrange(month)
+
+  ts_data <- ts(df$sales_volume,
+                start = c(year(min(df$month)), month(min(df$month))),
+                frequency = 12)
+
+  fit <- auto.arima(ts_data, seasonal = TRUE)
+  forecasted <- forecast(fit, h = 12)
+
+  forecast_table <- data.frame(
+    Month = format(seq(max(df$month) %m+% months(1), by = "month", length.out = 12), "%b.%Y"),
+    `High Estimate` = forecasted$upper[,1],
+    `Expected Forecast` = forecasted$mean,
+    `Low Estimate` = forecasted$lower[,1]
+  )
+
+  transposed_table <- t(forecast_table[,-1])
+  colnames(transposed_table) <- forecast_table$Month
+  rownames(transposed_table) <- c("High Estimate", "Expected Forecast", "Low Estimate")
+  transposed_table <- apply(transposed_table, c(1,2), function(x) dollar(x, accuracy = 1))
+
+  kable(transposed_table, caption = paste("📅 12-Month Sales Forecast -", category_name))
+}
+
+# Generate tables for each category
+forecast_category_table(category_monthly_sales, "Furniture")
+forecast_category_table(category_monthly_sales, "Office Supplies")
+forecast_category_table(category_monthly_sales, "Technology")
+
+```
+:::
+
+These three transposed tables provide detailed 12-month sales forecasts for each product category—Furniture, Office Supplies, and Technology. Each table includes high, expected, and low estimates, allowing for category-specific planning and performance tracking. This breakdown supports more granular decision-making in inventory, marketing, and budgeting.
+
+# 📈 Actionable Insights
+
+::: {.card .sales-time}
+<h5 class="card-title">
+
+📈 Actionable Insights
+
+</h5>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Function to get top 10 products for a given category
+get_top_products <- function(category_name) {
+  data %>%
+    filter(category == category_name) %>%
+    group_by(product_name) %>%
+    summarise(total_sales = sum(sales, na.rm = TRUE), .groups = "drop") %>%
+    arrange(desc(total_sales)) %>%
+    slice_head(n = 10) %>%
+    mutate(total_sales = dollar(round(total_sales, 0))) %>%
+    kable(caption = paste("🏆 Top 10 Products by Sales –", category_name))
+}
+
+# Generate tables for each category
+get_top_products("Furniture")
+get_top_products("Office Supplies")
+get_top_products("Technology")
+```
+:::
+
+# 📊 Financial Forecast Summary
+
+::: {.card .sales-time}
+### 🪑 Furniture – 12-Month Forecast Summary
+
+- **Total High Estimate:** $294,317  
+- **Total Expected Forecast:** $235,055  
+- **Total Low Estimate:** $175,790  
+- **📈 Peak Month:** November 2019  
+- **📉 Lowest Month:** February 2019  
+
+**Implications:**  
+Furniture shows moderate growth potential with a strong Q4 peak. Inventory planning should ramp up ahead of November. February may be ideal for cost-saving initiatives or maintenance.
+
+**Staffing Note:**  
+Consider scaling fulfillment and delivery staff in Q4. Use February for training or cross-departmental support.
+:::
+
+::: {.card .sales-time}
+### 🖇️ Office Supplies – 12-Month Forecast Summary
+
+- **Total High Estimate:** $383,764  
+- **Total Expected Forecast:** $281,772  
+- **Total Low Estimate:** $179,783  
+- **📈 Peak Month:** December 2019  
+- **📉 Lowest Month:** February 2019  
+
+**Implications:**  
+Office Supplies show strong seasonal demand, especially in December. This category is highly responsive to B2B and institutional cycles.
+
+**Staffing Note:**  
+Prepare for a surge in packaging and customer service in Q4. February may allow for reduced shifts or reallocation to digital support.
+:::
+
+::: {.card .sales-time}
+### 💻 Technology – 12-Month Forecast Summary
+
+- **Total High Estimate:** $437,816  
+- **Total Expected Forecast:** $299,571  
+- **Total Low Estimate:** $161,328  
+- **📈 Peak Month:** November 2019  
+- **📉 Lowest Month:** February 2019  
+
+**Implications:**  
+Technology is the top-performing category across all forecast scenarios. High-value items drive strong Q4 performance, especially in November.
+
+**Staffing Note:**  
+Expand technical support and B2B sales teams ahead of Q4. February may be used for product training or customer retention campaigns.
+:::
+
+::: {.card .sales-time}
+### 📈 Overall Forecast Insights
+
+- **Best Performing Category:** Technology (Highest total forecast across all scenarios)
+- **Worst Case Total Sales (All Categories, Low Estimate):** $516,901  
+- **Expected Total Sales (All Categories):** $816,398  
+- **Best Case Total Sales (All Categories, High Estimate):** $1,115,897  
+
+**Strategic Takeaways:**
+- Q4 (Oct–Dec) is critical across all categories—plan inventory, staffing, and marketing accordingly.
+- February is consistently the weakest month—ideal for cost-saving, training, or system upgrades.
+- Technology should be prioritized for investment, marketing, and enterprise sales focus.
+:::
+
+
+# 📊 Confidence-Based Actionable Insights
+
+::: {.card .sales-time}
+### 🪑 Furniture – Forecast-Based Actions
+
+**Upper Bound (High Sales)**  
+- Increase inventory of top sellers like *HON Task Chairs* and *Riverside Bookcases*.  
+- Expand marketing and sales outreach to corporate clients.  
+- Staffing: Hire or reassign additional warehouse staff and delivery personnel. Consider temporary staffing for peak months.
+
+**Expected Forecast**  
+- Maintain current stock levels and marketing cadence.  
+- Focus on fulfillment efficiency and customer satisfaction.  
+- Staffing: Keep staffing steady; cross-train employees to handle multiple roles.
+
+**Lower Bound (Low Sales)**  
+- Delay large inventory purchases and reduce marketing spend.  
+- Offer targeted promotions to stimulate demand.  
+- Staffing: Reduce overtime or shift hours. Reallocate staff to stronger categories or customer service.
+:::
+
+::: {.card .sales-time}
+### 🖇️ Office Supplies – Forecast-Based Actions
+
+**Upper Bound (High Sales)**  
+- Stock up on binding machines and consumables.  
+- Launch B2B subscription programs for recurring orders.  
+- Staffing: Add fulfillment staff for packaging and shipping. Increase customer support for B2B clients.
+
+**Expected Forecast**  
+- Maintain steady supply and pricing.  
+- Focus on customer retention and upselling.  
+- Staffing: Maintain current staffing levels. Use part-time or flexible staff to manage fluctuations.
+
+**Lower Bound (Low Sales)**  
+- Reduce inventory of slow-moving SKUs.  
+- Promote digital alternatives or bundle offers.  
+- Staffing: Consolidate roles or reduce hours in fulfillment. Shift staff to marketing or digital sales support.
+:::
+
+::: {.card .sales-time}
+### 💻 Technology – Forecast-Based Actions
+
+**Upper Bound (High Sales)**  
+- Prioritize inventory for high-value items like *Canon Copiers* and *Cisco TelePresence*.  
+- Offer premium service packages and enterprise solutions.  
+- Staffing: Hire or contract technical staff for installations and support. Expand B2B account teams.
+
+**Expected Forecast**  
+- Maintain balanced inventory and support resources.  
+- Focus on upselling accessories and services.  
+- Staffing: Maintain current staffing. Provide training to improve cross-selling and support.
+
+**Lower Bound (Low Sales)**  
+- Delay restocking expensive items.  
+- Promote trade-in or upgrade programs.  
+- Staffing: Freeze hiring and reduce hours for technical support. Reassign staff to retention or education roles.
+:::
+
+# 📎 Appendix
+
+This dashboard was created using data from a public Kaggle dataset: [Sales Dataset on Kaggle](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting)
+

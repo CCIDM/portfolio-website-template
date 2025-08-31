@@ -1,26 +1,26 @@
 ---
-title: "Hi, I'm [Your Name Here]"
+title: "Hi, I'm Annabelle"
 ---
 
 
 ::: {.columns}
 ::: {.column width="30%"}
-![](https://placehold.co/530x530?text=images/headshot.jpg){width=100% style="border-radius: 50%;"}
+![](https://44574734471b43b09c28e3442e218375.app.posit.cloud/file_show?path=%2Fcloud%2Fproject%2Fimages%2FHeadshot.jpg){width=100% style="border-radius: 50%;"}
 :::
 ::: {.column width="70%" style="padding-left: 3rem;"}
-I'm a [your profession or area of focus]. I specialize in transforming complex information into clear, engaging, and actionable insights.
+I'm a Financial Analyst. I specialize in transforming complex information into clear, engaging, and actionable insights.
 :::
 :::
 
 ## About Me
 
-I hold a <span class="highlight">[Your Degree or Current Program]</span> from [Your Institution].
+I hold a <span class="highlight"> Bachelor's degree in Business Administration</span> from University of Oregon, where I developed a strong foundation in finance, analytics, and strategic thinking.
 
 
 
 ## Let's Connect
 
-You can [email me](mailto:you@example.com) or connect on [LinkedIn](https://www.linkedin.com/in/your-profile).
+You can [email me](mailto:annabelleelizabethh@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/annabelle-p-736040190/).
 
 ---
 

@@ -16,40 +16,40 @@ You can view a PDF version of my résumé [here](resume/Resume.pdf).
 
 # Professional Summary
 
-Results-oriented marketing and analytics professional with a strong foundation in data analysis, digital strategy, and performance reporting. Skilled in leveraging analytics tools and programming languages to uncover insights and support decision-making across cross-functional teams.
+Analytical and results-driven finance professional with a Bachelor of Science in Finance and a minor in Economics from the University of Oregon. Currently serving as a Financial Analyst at HD Supply, with a strong track record in P&L management, forecasting, and cost analysis. Demonstrated ability to support cross-functional teams through data-driven insights and strategic recommendations. Previous experience includes roles in supply chain analysis and entrepreneurial ventures, showcasing a unique blend of corporate finance expertise and entrepreneurial acumen. Adept at leveraging Excel and financial tools to drive operational efficiency and cost savings. Passionate about advancing into financial planning and analysis leadership, with long-term goals in real estate investment and business development.
 
 # Technical Skills
 
-- **Programming Languages:** R, Python, SQL, etc.  
-- **Web Technologies:** HTML, CSS/SCSS, JavaScript, Quarto, CMS Platforms, Analytics Tools
+- **Programming Languages:** R, SQL
+- **Web Technologies:** HTML, Quarto, Analytics Tools
 
 # Education
 
 | Degree                             | Year                          | College / Department                 | Institution         |
 | ---------------------------------- | ----------------------------- | ------------------------------------ | ------------------- |
-| [Your Degree]                     | [Start – Graduation Year]     | [Your College or Department]        | [Your University]   |
-| [Previous Degree or Certification] | [Start – End Year]            | [Your College or Department]        | [Your University]   |
+| Masters in Business Administration | 2023-2025                     | College of Business Administration   |  Cal Poly Pomona    |
+| Bachelor of Science                | 2018-2021                     | Lundquist College of Business        | University of Oregon|
 
 # Work Experience
 
-### [Job Title], [Company or Organization]  
-*[Start Date – End Date]*
+### Senior Financial Analyst, HD Supply
+*1/1/2024 – Present*
 
-- [Responsibility or accomplishment #1]  
-- [Responsibility or accomplishment #2]  
-- [Responsibility or accomplishment #3]  
-- [Technical tools, collaboration, or outcomes]  
-- [Any metrics, impacts, or stakeholder involvement]
+- Spearhead nationwide P&L forecasting and reporting for 120+ distribution centers, aligning financial strategy with operational goals.
+- Partner with executive leadership to deliver high-impact insights that drive multimillion-dollar cost savings and performance improvements.
+- Navigate advanced reporting systems using SQL, Excel, and Power BI, enabling real-time visibility into financial and operational KPIs.
+- Lead cross-functional initiatives focused on financial planning, capital allocation, and strategic growth opportunities.  
+- Champion automation and data governance efforts, improving reporting accuracy and reducing manual processes by 40%.
 
 ---
 
-### [Job Title], [Company or Organization]  
-*[Start Date – End Date]*
+### Financial Analyst, HD Supply
+*1/1/2022 – 12/31/2023*
 
-- [Responsibility or accomplishment #1]  
-- [Responsibility or accomplishment #2]  
-- [Team leadership, training, or development]  
-- [Projects involving marketing, data, or web technologies]  
-- [Toolset used or strategies implemented]
+- Conducted monthly variance analysis and financial reviews across key business units, ensuring alignment with corporate targets.
+- Built dynamic forecasting models in Anaplan and Excel to support scenario planning and business case development.
+- Delivered actionable insights to regional managers, influencing decisions on pricing, staffing, and resource allocation.
+- Enhanced financial storytelling through interactive dashboards and marketing analytics tools.
+- Contributed to digital transformation projects, streamlining reporting workflows and improving data accessibility.
 
 ---
